@@ -54,8 +54,6 @@
       "title": "Bramwell Elixor",
       "category": "Characters",
       "summary": "A human cleric of Helm whose convictions have drawn both admiration and controversy.",
-      "body": "# The watchful hand\n**Bramwell Elixor** is a human cleric devoted to [[Helm]]. A practiced alchemist as well as a priest, he has walked a difficult line between faith, responsibility, and what he believes to be right.\n\nBramwell became known for his efforts to help those afflicted by a terrible plague. That work, and the choices surrounding it, have complicated his relationship with religious authority.\n\n## Travels\nA founding member of [[The Four Seasons]], Bramwell has journeyed through [[Port Llast]], [[Neverwinter]], and [[Thamor]]. During the knighting ceremony in Thamor, he reacted to an arrow aimed into the gathering.\n\n## Known connections\n- [[Helm]] — god of guardians and vigilance\n- [[The Four Seasons]] — his companions\n- [[Luna]] and [[Bjorn]] — fellow adventurers",
-      "cover": "assets/uploads/bramwell-elixor-starter-portrait.webp",
       "aliases": [],
       "facts": [
         [
@@ -76,17 +74,18 @@
         ]
       ],
       "icon": "⚔",
+      "cover": "assets/uploads/mvmbuhjw-me7u3fne.webp",
       "gallery": [
-        "assets/uploads/bramwell-elixor-starter-portrait.webp"
-      ]
+        "assets/uploads/mvmbunko-bmvfkcnw.webp",
+        "assets/uploads/mvmbuspc-jzo0n0fz.webp"
+      ],
+      "body": "# The watchful hand\n**Bramwell Elixor** is a human cleric devoted to [[Helm]]. A practiced alchemist as well as a priest, he has walked a difficult line between faith, responsibility, and what he believes to be right.\n\nBramwell became known for his efforts to help those afflicted by a terrible plague. That work, and the choices surrounding it, have complicated his relationship with religious authority.\n\n## Travels\nA founding member of [[The Four Seasons]], Bramwell has journeyed through [[Port Llast]], [[Neverwinter]], and [[Thamor]]. During the knighting ceremony in Thamor, he reacted to an arrow aimed into the gathering.\n\n## Known connections\n- [[Helm]] — god of guardians and vigilance\n- [[The Four Seasons]] — his companions\n- [[Luna]] and [[Bjorn]] — fellow adventurers"
     },
     {
       "id": "luna",
       "title": "Luna",
       "category": "Characters",
       "summary": "A wanderer whose story is still unfolding, with strange dreams and ties to the world of the fey.",
-      "body": "# A life written in questions\n**Luna** travels with [[The Four Seasons]]. Mysterious dreams, unusual encounters, and the pull of the fey have followed her adventures.\n\nOnce known for her roguish talents, Luna's journey has taken her toward strange magic and a personal history that is not yet fully understood.\n\n## On the road\nLuna has traveled alongside [[Bramwell Elixor]] and [[Bjorn]] through [[Port Llast]], [[Neverwinter]], and the lands around [[Thamor]].\n\n## A living entry\nMore of Luna's history will be added as it becomes part of the shared campaign story.",
-      "cover": "assets/uploads/luna-starter-portrait.webp",
       "aliases": [],
       "facts": [
         [
@@ -94,14 +93,16 @@
           "The Four Seasons"
         ],
         [
-          "Known_for",
+          "Known for",
           "Unusual dreams and fey encounters"
         ]
       ],
       "icon": "☾",
+      "cover": "assets/uploads/mvmc295v-cnc1of7y.webp",
       "gallery": [
-        "assets/uploads/luna-starter-portrait.webp"
-      ]
+        "assets/uploads/mvmc1qal-xrpu8qg8.webp"
+      ],
+      "body": "# A life written in questions\n**Luna** travels with [[The Four Seasons]]. Mysterious dreams, unusual encounters, and the pull of the fey have followed her adventures.\n\nOnce known for her roguish talents, Luna's journey has taken her toward strange magic and a personal history that is not yet fully understood.\n\n## On the road\nLuna has traveled alongside [[Bramwell Elixor]] and [[Bjorn]] through [[Port Llast]], [[Neverwinter]], and the lands around [[Thamor]].\n\n## A living entry\nMore of Luna's history will be added as it becomes part of the shared campaign story."
     },
     {
       "id": "bjorn",
@@ -1922,5 +1923,15 @@
       }
     ]
   },
-  "quests": []
+  "quests": [
+    {
+      "id": "quest-mvmhrqto",
+      "title": "THE ASH-REED COURIER",
+      "status": "Open",
+      "giver": "Thamor Adventurer Guild",
+      "body": "GUILD JOB: THE ASH-REED COURIER / 240 GP TOTAL\n\nClient: Merchants' Exchange, with a small reward supplement from the Guild. \n\nLocation: Reedglass Fen, about two hours east of Thamor's outer orchards; walking route leads past old toll markers.\n\nObjective: Find Dera Sol, an adult courier last seen taking a sealed tribute packet to a local healer called Auntie Veyra. Return Dera alive if possible; recover the packet, notes, or proof of what happened.\n\n\nWhy urgent: Several burned traders bought “dragonfire ward” charms from a seller tied to the fen. One wagon burned despite the charm. Locals say the marks on its axles were made by an actual red dragon.",
+      "reward": "240",
+      "image": ""
+    }
+  ]
 }
