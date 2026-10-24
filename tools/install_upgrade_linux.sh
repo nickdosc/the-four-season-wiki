@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Does not close a parent interactive terminal; stops without overwriting custom source changes.
+# V2 guarded in-place upgrade. No implicit Git commit or push.
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-python3 "$ROOT/tools/upgrade_safe.py"
+exec python3 "$ROOT/tools/upgrade_v2.py"

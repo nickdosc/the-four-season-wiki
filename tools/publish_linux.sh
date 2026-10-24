@@ -44,8 +44,8 @@ if [[ -d .git ]];then
  [[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]] || { echo 'STOP: Local main and origin/main differ. No changes pushed; reconcile Git history manually.';exit 1; }
  python3 - <<'PY'
 import subprocess,sys
-allowed={'index.html','assets/app.js','assets/style.css','assets/favicon.svg','README.md','data/pages.json','.nojekyll','.gitignore','CNAME',
- 'tools/preview_linux.sh','tools/publish_linux.sh','tools/verify_linux.sh','tools/install_upgrade_linux.sh','tools/upgrade_safe.py','tools/build_seed.py','tools/check_content.py','tools/smoke_test.py'}
+allowed={'index.html','404.html','assets/app.js','assets/style.css','assets/favicon.svg','README.md','data/pages.json','.nojekyll','.gitignore','CNAME',
+ 'tools/preview_linux.sh','tools/publish_linux.sh','tools/verify_linux.sh','tools/install_upgrade_linux.sh','tools/upgrade_safe.py','tools/upgrade_v2.py','tools/build_seed.py','tools/check_content.py','tools/smoke_test.py','assets/atlas.js'}
 items=subprocess.check_output(['git','status','--porcelain','-z','--untracked-files=all']).decode().split('\0')
 for row in items:
  if not row:continue
@@ -67,15 +67,15 @@ if [[ ! -d .git ]];then
  git commit -m 'feat: publish Daughter of the Moon Wiki'
  gh repo create "$OWNER/$REPO" --public --source=. --remote=origin --push --description 'Player-safe Daughter of the Moon D&D campaign encyclopedia'
 else
- files=(index.html assets/app.js assets/style.css assets/favicon.svg README.md data/pages.json .nojekyll .gitignore
-  tools/preview_linux.sh tools/publish_linux.sh tools/verify_linux.sh tools/install_upgrade_linux.sh tools/upgrade_safe.py tools/build_seed.py tools/check_content.py tools/smoke_test.py)
+ files=(index.html 404.html assets/app.js assets/atlas.js assets/style.css assets/favicon.svg README.md data/pages.json .nojekyll .gitignore
+  tools/preview_linux.sh tools/publish_linux.sh tools/verify_linux.sh tools/install_upgrade_linux.sh tools/upgrade_v2.py tools/build_seed.py tools/check_content.py tools/smoke_test.py)
  if [[ -f CNAME ]];then files+=(CNAME);fi
  git add -- "${files[@]}"
  if [[ -d assets/uploads ]];then git add -- assets/uploads;fi
  if git diff --cached --quiet; then echo 'PASS: Existing repository already has the current wiki files.'
  else
   git diff --cached --stat
-  git commit -m 'feat: rebrand to Daughter of the Moon Wiki'
+  git commit -m 'feat: Daughter of the Moon Wiki V2 Living Atlas'
   git push origin main
  fi
 fi
@@ -89,9 +89,12 @@ JSON
  else echo 'NOTICE: Enable Pages manually: Repository Settings > Pages > Deploy from a branch > main / (root).';fi
 fi
 if [[ "$args" == *' --domain-owned '* ]];then
- if gh api "repos/$OWNER/$REPO/pages" --method PUT -f cname="$DOMAIN" >/dev/null;then
-  echo "PASS: GitHub Pages custom domain requested: $DOMAIN"
- else echo 'NOTICE: Set the custom domain manually in Settings > Pages once the domain is owned and DNS is ready.';fi
+ ACTIVE_CNAME="$(gh api "repos/$OWNER/$REPO/pages" --jq '.cname // ""' 2>/dev/null || true)"
+ if [[ "$ACTIVE_CNAME" == "$DOMAIN" ]];then
+  echo "PASS: Custom domain already configured ($DOMAIN); leaving existing certificate and HTTPS settings unchanged."
+ elif gh api "repos/$OWNER/$REPO/pages" --method PUT -f cname="$DOMAIN" >/dev/null;then
+  echo "PASS: Custom domain requested: $DOMAIN"
+ else echo 'NOTICE: Domain not configured automatically; use repository Settings > Pages.';fi
 fi
 echo "REPOSITORY: https://github.com/$OWNER/$REPO"
 echo "GITHUB PAGES FALLBACK: https://$OWNER.github.io/$REPO/"

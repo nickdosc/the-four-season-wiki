@@ -7,7 +7,7 @@
       "title": "The Four Seasons",
       "category": "Party",
       "summary": "A band of travelers whose paths have become entwined with the fate of kingdoms, moonlight, and shadow.",
-      "body": "# A name forged on the road\nThe **Four Seasons** is the name adopted by the adventuring party during their travels through [[Kestrel Ford]]. Their story began far to the north, in [[Port Llast]], where an investigation at the [[Port Llast Lighthouse]] led them into a mystery involving [[Selûne]], [[Shar]], and the [[Moon Scroll]].\n\n## The adventurers\nThe company has included [[Bramwell Elixor]], [[Luna]], [[Bjorn]], and [[Fenwick]]. Allies met along the way include [[Jimsko]], [[Brick]], and [[Estephan]].\n\n## A widening world\nWhat began on the Sword Coast has carried the travelers through [[Neverwinter]] and toward [[Thamor]], where politics and a looming threat known as the [[Dragon's Due]] have begun to cast a long shadow.\n\n> Some legends begin with a prophecy. Others begin with a few strangers choosing to walk the same road.\n\n## Chronicle\nRead the [[Campaign Chronicle]] for the group's journey so far.",
+      "body": "# A name forged on the road\nThe **Four Seasons** is the name the adventurers chose in [[Kestrel Ford]], after surviving a far longer journey that began near [[Port Llast]]. Their story has crossed kingdoms, the sea, and even the [[Shadowfell]].\n\n## The adventurers\nThe founding travelers were [[Bramwell Elixor]], [[Luna]], [[Bjorn]], and [[Fenwick]]. As the story grew, companions such as [[Amel]], [[Princess Yulia]], [[Brick]], and [[Estephan]] joined them along the road. [[Fenwick]] later departed the traveling party, though he remains part of its history.\n\n## Friends, uneasy allies, and foes\nThe company's path has intertwined with [[Jimsko]], [[Flynn]], [[Velka]], and [[The Pirate Queen]]. New faces continue to appear as they travel, including [[Cinder]] in [[Thamor]].\n\n## Follow their story\nExplore the [[Campaign Chronicle]], open the **Session Journal** from the top navigation, or visit the **World Atlas** to trace their recorded journey.\n\n> Four different paths. One story beneath the moon.",
       "cover": "",
       "aliases": [
         "Four Seasons",
@@ -34,7 +34,7 @@
       "title": "Campaign Chronicle",
       "category": "Chronicle",
       "summary": "A player-friendly record of the travels and turning points of The Four Seasons.",
-      "body": "# A chronicle of the road\n## Chapter I — The light at Port Llast\nThe adventurers arrived at [[Port Llast]], spoke with its people, and uncovered unsettling events surrounding the [[Port Llast Lighthouse]]. Their travels brought them into the [[Caverns of Lior]] and into possession of the mysterious [[Moon Scroll]].\n\n## Chapter II — The road to Neverwinter\nFollowing the events in Port Llast, the party traveled toward [[Neverwinter]], a city of crowns, traders, and uneasy loyalties. There, their discoveries drew greater attention.\n\n## Saga II — The roads of Threskel\nThe group continued toward [[Kestrel Ford]], where they adopted the name [[The Four Seasons]]. The journey eventually led them into [[Thamor]] and its crowded streets, as the young [[King Arven I]] prepared to preside over a knighting ceremony.\n\n## Most recently\nAt the celebration in [[Thamor]], an attempted attack disturbed the ceremony. The city now stands at the intersection of royal ambition, rival claims, and the threat of the [[Dragon's Due]].\n\n*This chronicle records the broad strokes of events known to the party. Individual entries can be expanded after each session.*",
+      "body": "# A chronicle of the road\n## Saga I — The daughter of the moon\nFour travelers arrived in [[Port Llast]] and investigated the [[Port Llast Lighthouse]], then recovered the [[Moon Scroll]] in the [[Caverns of Lior]]. Their quest led them through [[Neverwinter]], [[Neverwinter Wood]], and [[Luskan]], where [[Jimsko]] was rescued and the mystery of the [[Moonfall Vault]] emerged.\n\nThrough the vault they entered the [[Shadowfell]] and traveled to [[Blackreach]], seeking a way back to the Material Plane. Their battle against the Unforgotten gave the [[Keeper]] time to open a [[Shadow Crossing]], and the adventurers returned to a wheat field beneath open sky.\n\nEvery Saga I session is recorded individually in the **Session Journal** (Sessions 1–17), based on the party's own recaps.\n\n## Saga II — A name and a crown\nThe travelers reached [[Kestrel Ford]], where their company became [[The Four Seasons]]. After further travel they entered [[Thamor]], met [[Cinder]], and attended [[King Arven I]]'s knighting ceremony in [[Crown Square]]. There, an attempted attack disturbed the celebration and [[Bramwell Elixor]] blocked an incoming arrow.\n\n*Only played events are recorded here. The next chapter is waiting to be written.*",
       "cover": "",
       "aliases": [],
       "facts": [
@@ -55,7 +55,7 @@
       "category": "Characters",
       "summary": "A human cleric of Helm whose convictions have drawn both admiration and controversy.",
       "body": "# The watchful hand\n**Bramwell Elixor** is a human cleric devoted to [[Helm]]. A practiced alchemist as well as a priest, he has walked a difficult line between faith, responsibility, and what he believes to be right.\n\nBramwell became known for his efforts to help those afflicted by a terrible plague. That work, and the choices surrounding it, have complicated his relationship with religious authority.\n\n## Travels\nA founding member of [[The Four Seasons]], Bramwell has journeyed through [[Port Llast]], [[Neverwinter]], and [[Thamor]]. During the knighting ceremony in Thamor, he reacted to an arrow aimed into the gathering.\n\n## Known connections\n- [[Helm]] — god of guardians and vigilance\n- [[The Four Seasons]] — his companions\n- [[Luna]] and [[Bjorn]] — fellow adventurers",
-      "cover": "",
+      "cover": "assets/uploads/bramwell-elixor-starter-portrait.webp",
       "aliases": [],
       "facts": [
         [
@@ -75,7 +75,10 @@
           "The Four Seasons"
         ]
       ],
-      "icon": "⚔"
+      "icon": "⚔",
+      "gallery": [
+        "assets/uploads/bramwell-elixor-starter-portrait.webp"
+      ]
     },
     {
       "id": "luna",
@@ -83,7 +86,7 @@
       "category": "Characters",
       "summary": "A wanderer whose story is still unfolding, with strange dreams and ties to the world of the fey.",
       "body": "# A life written in questions\n**Luna** travels with [[The Four Seasons]]. Mysterious dreams, unusual encounters, and the pull of the fey have followed her adventures.\n\nOnce known for her roguish talents, Luna's journey has taken her toward strange magic and a personal history that is not yet fully understood.\n\n## On the road\nLuna has traveled alongside [[Bramwell Elixor]] and [[Bjorn]] through [[Port Llast]], [[Neverwinter]], and the lands around [[Thamor]].\n\n## A living entry\nMore of Luna's history will be added as it becomes part of the shared campaign story.",
-      "cover": "",
+      "cover": "assets/uploads/luna-starter-portrait.webp",
       "aliases": [],
       "facts": [
         [
@@ -95,7 +98,10 @@
           "Unusual dreams and fey encounters"
         ]
       ],
-      "icon": "☾"
+      "icon": "☾",
+      "gallery": [
+        "assets/uploads/luna-starter-portrait.webp"
+      ]
     },
     {
       "id": "bjorn",
@@ -103,7 +109,7 @@
       "category": "Characters",
       "summary": "A towering goliath barbarian, formidable in battle and loyal to his companions.",
       "body": "# Strength on the road\n**Bjorn** is a goliath warrior and a member of [[The Four Seasons]].\n\nA son of [[Jimsko]], Bjorn carries his strength and resolve through each hard-won adventure, from the shores near [[Port Llast]] to the roads beyond [[Neverwinter]].\n\nHis story is closely entwined with those of [[Bramwell Elixor]], [[Luna]], and their fellow travelers.",
-      "cover": "",
+      "cover": "assets/uploads/bjorn-starter-portrait.webp",
       "aliases": [],
       "facts": [
         [
@@ -123,7 +129,10 @@
           "The Four Seasons"
         ]
       ],
-      "icon": "✊"
+      "icon": "✊",
+      "gallery": [
+        "assets/uploads/bjorn-starter-portrait.webp"
+      ]
     },
     {
       "id": "fenwick",
@@ -131,7 +140,7 @@
       "category": "Characters",
       "summary": "A gnome druid, also known as Xero, who once traveled with the company.",
       "body": "# The druid of the wilds\n**Fenwick**, sometimes called **Xero**, is a gnome druid and a former traveling member of [[The Four Seasons]].\n\nHis familiarity with the natural world brought a different outlook to the group during their journeys. His road has since separated from the company’s, though his part in their history remains.\n\nSee also: [[Campaign Chronicle]].",
-      "cover": "",
+      "cover": "assets/uploads/fenwick-starter-portrait.webp",
       "aliases": [
         "Xero"
       ],
@@ -149,7 +158,10 @@
           "Former companion"
         ]
       ],
-      "icon": "❀"
+      "icon": "❀",
+      "gallery": [
+        "assets/uploads/fenwick-starter-portrait.webp"
+      ]
     },
     {
       "id": "jimsko",
@@ -533,7 +545,10 @@
           "The knighting ceremony"
         ]
       ],
-      "icon": "🏰"
+      "icon": "🏰",
+      "gallery": [
+        "assets/uploads/moonlit-citadel-illustration.webp"
+      ]
     },
     {
       "id": "crown-square",
@@ -705,7 +720,7 @@
       "title": "How to Use This Wiki",
       "category": "Guides",
       "summary": "A quick introduction to browsing and contributing to the living campaign encyclopedia.",
-      "body": "# Welcome to the archive\nThis wiki is written for players of **The Daughter of the Moon**. It grows as the party discovers people, places, artifacts, and stories.\n\n## Finding articles\nUse the **Search** field, browse the category library, or follow highlighted names inside any article. Names that already have entries are automatically linked. You can also write an explicit link with `[[Neverwinter]]` or `[[Neverwinter|the city]]`.\n\n## Editing\nOpen an article and select **Edit article**. New entries can be created from **New entry**. Changes are saved as local drafts first; publishing to GitHub requires an authorized editor's credential.\n\n## Images\nEditors can attach or replace images and insert them directly into an article. Images are stored with the project when the changes are published.\n\n## A spoiler-safe book\nUnrevealed lore and DM plans do **not** belong in this public archive.",
+      "body": "# Welcome to the Living Atlas\n**Daughter of the Moon Wiki** is a player-safe encyclopedia of people, places, and adventures of [[The Four Seasons]].\n\n## Explore\n- **World Atlas**: switch between the Sword Coast, Threskel, and the Shadowfell. Click a pin to open the location and its session appearances. Maps are schematic, not precise geography.\n- **Connections**: focus any wiki article to see the constellation of related people, organizations, locations, and artifacts.\n- **Session Journal**: open each recap or add your own next session.\n- **Quest Board**: starts empty. Post a quest during a session and mark it Open, In progress, Completed, or Archived.\n\n## Edit articles and add artwork\nUse **Edit this article** or **New entry** to change text, upload a cover or gallery portraits, and add rich internal references such as `[[Neverwinter]]` or `[[Neverwinter|the city]]`. A character gallery is made of images added through the scribe's editor.\n\n## Draw your own routes and links\nOn the **World Atlas**, choose *Edit map & routes* to add pins for existing articles, position them by coordinates, and create routes. Choose *Move pins* to drag them directly. On **Connections**, use *Edit relationships* to add or remove links between any two entries.\n\n## Publish carefully\nEdits save to your browser first, including drafts, quests, map changes, relationships, and session text. Choose **Edit wiki** → **Publish to GitHub** with a repository-scoped editor token when you're ready for players to see them. Other readers don't need any token. Don't paste tokens into content.\n\n**Backups matter:** the editor's Download complete backup command includes images that haven't been published yet. On another browser/device, restore that backup before continuing.\n\n## Player-safe by design\nThere is no password-protected DM section. Unrevealed plans and backstories must remain outside this public GitHub repository.",
       "cover": "",
       "aliases": [],
       "facts": [
@@ -715,6 +730,1197 @@
         ]
       ],
       "icon": "✎"
+    },
+    {
+      "id": "neverwinter-wood",
+      "title": "Neverwinter Wood",
+      "category": "Locations",
+      "summary": "A wilderness of hidden paths, an old druid sanctuary, and unlikely meetings.",
+      "aliases": [
+        "Neverwinter Woods"
+      ],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "The company crossed [[Neverwinter Wood]] while keeping [[Princess Yulia]] beyond the city's reach. Here they aided [[Amel]], met the storyteller Volo, and sought a druid sanctuary through old forest signs.\n\n## In the chronicle\nSee [[Saga I — Session 6: Into the Woods]] and [[Druid Sanctuary]]."
+    },
+    {
+      "id": "druid-sanctuary",
+      "title": "Druid Sanctuary",
+      "category": "Locations",
+      "summary": "A secluded refuge found beyond a cavern guarded by an owlbear.",
+      "aliases": [],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "A crow near a statue of Silvanus pointed the party toward a hidden route through [[Neverwinter Wood]]. Past spiders and an owlbear, [[Fenwick]] entered a sanctuary accessible to those who had spared its guardian.\n\n[[Saga I — Session 6: Into the Woods]] and [[Saga I — Session 7: Road to Luskan]] recount the visit."
+    },
+    {
+      "id": "flynn-safehouse",
+      "title": "Flynn's Safehouse",
+      "category": "Locations",
+      "summary": "A refuge and meeting place for the party during their time in Luskan.",
+      "aliases": [],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "After meeting [[Flynn]] at a performance in [[Luskan]], the adventurers found temporary shelter at his safehouse. They returned here while navigating the Pirate Queen's demands and the rescue of [[Jimsko]].\n\nThe house was eventually compromised. See [[Saga I — Session 10: The Ledger House]]."
+    },
+    {
+      "id": "ledger-house",
+      "title": "The Ledger House",
+      "category": "Locations",
+      "summary": "A suspicious Luskan property where an important rescue took place.",
+      "aliases": [
+        "Ledger House"
+      ],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "A supposed tax office in [[Luskan]] concealed imprisoned captives. The adventurers infiltrated it at night and rescued [[Jimsko]] and [[Velka]].\n\nSee [[Saga I — Session 10: The Ledger House]]."
+    },
+    {
+      "id": "moonfall-island",
+      "title": "Moonfall Island",
+      "category": "Locations",
+      "summary": "A moonlit island whose ancient pool opened the way below the sea.",
+      "aliases": [],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "A ruined island and circular pool associated with [[Selûne]]. When the [[Moon Scroll]] was spoken under the moon, the waters opened into a portal toward the [[Moonfall Vault]].\n\nSee [[Saga I — Session 12: Beneath the Moon]]."
+    },
+    {
+      "id": "moonfall-vault",
+      "title": "Moonfall Vault",
+      "category": "Locations",
+      "summary": "A legendary underwater sanctuary reached through a moonlit portal.",
+      "aliases": [
+        "Undersea Vault"
+      ],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "[[Jimsko]] spoke of a hidden vault beneath the sea. The party set sail from [[Port Llast]] and reached a portal on [[Moonfall Island]], eventually entering a submerged sanctuary filled with ancient magic, strange creatures, and a ruined shrine of [[Selûne]].\n\nIts depths led into an unexpected journey to the [[Shadowfell]]."
+    },
+    {
+      "id": "shadowfell",
+      "title": "The Shadowfell",
+      "category": "Locations",
+      "summary": "A shadowed plane of lost memories, illusions, and costly passage.",
+      "aliases": [
+        "Shadowfell"
+      ],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "The party was cast into this bleak realm from the [[Moonfall Vault]]. They journeyed across black grass toward [[Blackreach]], where memories could serve as payment and a [[Shadow Crossing]] offered hope of a return home.\n\nFollow the journey in [[Saga I — Session 13: The Shadowfell]] and beyond."
+    },
+    {
+      "id": "eye-of-memories",
+      "title": "Eye of Memories",
+      "category": "Locations",
+      "summary": "A mysterious institution in Blackreach said to hold memories and clues to escape.",
+      "aliases": [],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "Within [[Blackreach]], the party sought the Eye of Memories and its priest in hopes of discovering the whereabouts of the [[Keeper]]. Its archive concerned lost memories and the last [[Shadow Crossing]].\n\nSee [[Saga I — Session 14: The Eye of Memories]]."
+    },
+    {
+      "id": "forgotten-district",
+      "title": "Forgotten District",
+      "category": "Locations",
+      "summary": "A hidden passage beneath Blackreach leading to a remarkable encounter.",
+      "aliases": [],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "With [[Annabel]]'s help, the group entered a secret district under [[Blackreach]] and reached a vast door. Beyond it they finally met the [[Keeper]].\n\nSee [[Saga I — Session 17: The Unforgotten]]."
+    },
+    {
+      "id": "crown-of-embers",
+      "title": "Crown of Embers",
+      "category": "Locations",
+      "summary": "A Neverwinter tavern remembered for a night that descended into chaos.",
+      "aliases": [],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "Some of the party stayed here during their first time in [[Neverwinter]]. One evening's festivities escalated into a tavern-wide brawl.\n\nSee [[Saga I — Session 5: The Prophecy]]."
+    },
+    {
+      "id": "wizards-rest",
+      "title": "Wizard's Rest",
+      "category": "Locations",
+      "summary": "A scholarly haven visited by Fenwick in Neverwinter.",
+      "aliases": [],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "[[Fenwick]] spent an evening here while the rest of the adventurers went to the [[Crown of Embers]]. Later, the party pursued research into the [[Moon Scroll]]."
+    },
+    {
+      "id": "thamor-stables",
+      "title": "Thamor Stables",
+      "category": "Locations",
+      "summary": "A stable near the busy streets of Thamor where the party left its horses.",
+      "aliases": [],
+      "facts": [],
+      "icon": "⌖",
+      "cover": "",
+      "body": "The Four Seasons arrived in [[Thamor]] and left their newly purchased mounts here before exploring the city. Crowds had gathered for [[King Arven I]]'s knighting ceremony in [[Crown Square]]."
+    },
+    {
+      "id": "flynn",
+      "title": "Flynn",
+      "category": "Characters",
+      "summary": "A resourceful Luskan contact rescued from the caves near Port Llast.",
+      "aliases": [],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "The party freed [[Flynn]] from captivity during their first investigations near [[Port Llast]]. He later repaid the favor in [[Luskan]], supplying contacts and a temporary safehouse. He assisted with passage by ship toward the [[Moonfall Vault]]."
+    },
+    {
+      "id": "amel",
+      "title": "Amel",
+      "category": "Characters",
+      "summary": "A quick-thinking adventurer who met the party in Neverwinter Wood.",
+      "aliases": [],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "[[Amel]] fought alongside the company after their encounter with blood hawks in [[Neverwinter Wood]]. He later traveled with them through [[Luskan]] and into the [[Shadowfell]].\n\nHe became part of the group's later Saga I history."
+    },
+    {
+      "id": "vesper",
+      "title": "Vesper",
+      "category": "Characters",
+      "summary": "A young person encountered in Luskan who traveled with the company.",
+      "aliases": [],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "The party met [[Vesper]] during its stay in [[Luskan]]. She later accompanied the others toward [[Port Llast]], where Vesper, [[Velka]], and [[Princess Yulia]] remained behind during the sea voyage."
+    },
+    {
+      "id": "pirate-queen",
+      "title": "The Pirate Queen",
+      "category": "Characters",
+      "summary": "A formidable power in Luskan who bargained with and manipulated the party.",
+      "aliases": [
+        "Pirate Queen of the North"
+      ],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "In [[Luskan]], the adventurers were brought before a pirate queen who offered information and leverage involving [[Jimsko]] and [[Velka]]. The encounter led them to the [[Ledger House]].\n\nHer interest in the [[Moonfall Vault]] placed her in rivalry with the group."
+    },
+    {
+      "id": "annabel",
+      "title": "Annabel",
+      "category": "Characters",
+      "summary": "A lost memory in Blackreach who sought one last moment with her mother.",
+      "aliases": [
+        "Anabelle"
+      ],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "In the [[Shadowfell]], the group met [[Annabel]], a child searching for her mother [[Ariana]]. After they helped reunite the pair, Annabel guided them toward the [[Forgotten District]] and the [[Keeper]]."
+    },
+    {
+      "id": "ariana",
+      "title": "Ariana",
+      "category": "Characters",
+      "summary": "Annabel’s mother, living in Blackreach with fading recollections.",
+      "aliases": [],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "The adventurers visited [[Ariana]]'s home in [[Blackreach]]. With the help of a family portrait, they briefly restored her memory of her daughter [[Annabel]]."
+    },
+    {
+      "id": "keeper",
+      "title": "The Keeper",
+      "category": "Characters",
+      "summary": "An ancient presence the party met beneath Blackreach.",
+      "aliases": [
+        "Keeper"
+      ],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "Deep in the [[Forgotten District]], the adventurers encountered the [[Keeper]]. It offered a chance to open a [[Shadow Crossing]], provided the company could protect it through a dangerous ritual.\n\nThe confrontation is recorded in [[Saga I — Session 17: The Unforgotten]]."
+    },
+    {
+      "id": "veren",
+      "title": "Verren",
+      "category": "Characters",
+      "summary": "A powerful, enigmatic traveling companion whose path later diverged.",
+      "aliases": [
+        "Veren",
+        "Varen"
+      ],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "The mysterious wizard traveled with the company during the [[Shadowfell]] chapter and helped them return home. Later, after reaching the Material Plane, he departed to recover memories and regain control of his magic.\n\nNames in the adventurers' retellings vary, including Veren and Varen."
+    },
+    {
+      "id": "cinder-companion",
+      "title": "Cinder the Fairy",
+      "category": "Characters",
+      "summary": "An animated healer introduced to the company in Thamor.",
+      "aliases": [
+        "Cinder the Healer"
+      ],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "The Four Seasons encountered [[Cinder]] in [[Thamor]] during preparations for the young king's ceremony. He was known for flamboyant behavior and healing magic."
+    },
+    {
+      "id": "lysa",
+      "title": "Lysa",
+      "category": "Characters",
+      "summary": "A traveler helped by the company near Kestrel Ford.",
+      "aliases": [],
+      "facts": [],
+      "icon": "♙",
+      "cover": "",
+      "body": "On their way toward [[Kestrel Ford]], the party helped [[Lysa]] after trouble involving goblins and a flock of sheep. The misadventure became one of the early stories of Saga II."
+    },
+    {
+      "id": "shadow-crossing",
+      "title": "Shadow Crossing",
+      "category": "Deities & Lore",
+      "summary": "A rare passage between the Shadowfell and the Material Plane.",
+      "aliases": [],
+      "facts": [],
+      "icon": "☾",
+      "cover": "",
+      "body": "During their stay in [[Blackreach]], the party learned of [[Shadow Crossing]]s that might provide a road home from the [[Shadowfell]]. The [[Keeper]] ultimately helped them open such a passage after they survived a difficult defense."
+    },
+    {
+      "id": "saga-1-session-01",
+      "title": "Saga I — Session 1: The Road to Port Llast",
+      "category": "Chronicle",
+      "summary": "Session 1 · Retold by Bramwell · The Road to Port Llast.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "1"
+        ],
+        [
+          "Recap voice",
+          "Bramwell"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\n[[Bramwell Elixor]], [[Luna]], [[Bjorn]] and [[Fenwick]] met on the road to [[Port Llast]]. A wrecked merchant wagon, a thief and wolves tested the strangers before they encountered [[Jimsko]] at [[The Net & Keg]]. Rumors of a failing [[Port Llast Lighthouse]] drew their attention.\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 1
+      }
+    },
+    {
+      "id": "saga-1-session-02",
+      "title": "Saga I — Session 2: The Flickering Lighthouse",
+      "category": "Chronicle",
+      "summary": "Session 2 · Retold by Fenwick · The Flickering Lighthouse.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "2"
+        ],
+        [
+          "Recap voice",
+          "Fenwick"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nAt the docks the group met Port Llast’s mayor. With the help of [[Brick]], they investigated the mayor’s home, found a book concerning [[Selûne]], fought shades beneath the [[Port Llast Lighthouse]], and stopped a ritual involving a magical shard at the tower’s top.\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 2
+      }
+    },
+    {
+      "id": "saga-1-session-03",
+      "title": "Saga I — Session 3: The Hidden Cove",
+      "category": "Chronicle",
+      "summary": "Session 3 · Retold by Bjorn · The Hidden Cove.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "3"
+        ],
+        [
+          "Recap voice",
+          "Bjorn"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\n[[Estephan]] joined the company. They raided a pirate beach camp, destroyed a false lighthouse and entered the [[Caverns of Lior]]. [[Flynn]] was freed; beyond a rune-locked wall they recovered the [[Moon Scroll]], whose magical numbers appeared to count down.\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 3
+      }
+    },
+    {
+      "id": "saga-1-session-04",
+      "title": "Saga I — Session 4: The Price of a Scroll",
+      "category": "Chronicle",
+      "summary": "Session 4 · Retold by Luna · The Price of a Scroll.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "4"
+        ],
+        [
+          "Recap voice",
+          "Luna"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nThe party captured [[Velka]] in the [[Caverns of Lior]]. On returning to [[Port Llast]], they found [[The Net & Keg]] attacked and [[Jimsko]] missing. Faced with a dwindling countdown and warnings about the scroll, they chose to seek answers in [[Neverwinter]] first.\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 4
+      }
+    },
+    {
+      "id": "saga-1-session-05",
+      "title": "Saga I — Session 5: The Prophecy",
+      "category": "Chronicle",
+      "summary": "Session 5 · Retold by Bramwell · The Prophecy.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "5"
+        ],
+        [
+          "Recap voice",
+          "Bramwell"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nOn the road to [[Neverwinter]], the adventurers met the fairies [[Wiwi]] and Nini. In the city, research yielded fragments of the [[Moon Scroll]]’s prophecy, and the countdown ceased. The group then helped [[Princess Yulia]] escape an escort; she joined their travels.\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 5
+      }
+    },
+    {
+      "id": "saga-1-session-06",
+      "title": "Saga I — Session 6: Into the Woods",
+      "category": "Chronicle",
+      "summary": "Session 6 · Retold by Fenwick · Into the Woods.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "6"
+        ],
+        [
+          "Recap voice",
+          "Fenwick"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nLeaving [[Neverwinter]] by forest paths, [[Bjorn]] stayed behind when guards arrived. In [[Neverwinter Wood]], the others rescued [[Amel]], met Volo and found a cavern leading to the [[Druid Sanctuary]] past a dangerous owlbear.\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 6
+      }
+    },
+    {
+      "id": "saga-1-session-07",
+      "title": "Saga I — Session 7: Road to Luskan",
+      "category": "Chronicle",
+      "summary": "Session 7 · Retold by Amel · Road to Luskan.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "7"
+        ],
+        [
+          "Recap voice",
+          "Amel"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nThe adventurers reached the [[Druid Sanctuary]] and continued north to [[Luskan]]. The city quickly introduced them to its thieves, bargains, rumors and new faces, including [[Vesper]].\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 7
+      }
+    },
+    {
+      "id": "saga-1-session-08",
+      "title": "Saga I — Session 8: A Play About Us",
+      "category": "Chronicle",
+      "summary": "Session 8 · Retold by Luna · A Play About Us.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "8"
+        ],
+        [
+          "Recap voice",
+          "Luna"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nWanted posters in [[Luskan]] accused the travelers of abducting [[Princess Yulia]]. They attended a theatrical parody of their own exploits, met [[Flynn]] there and received an invitation to speak privately. A masked director then confronted [[Bramwell Elixor]].\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 8
+      }
+    },
+    {
+      "id": "saga-1-session-09",
+      "title": "Saga I — Session 9: The Pirate Queen",
+      "category": "Chronicle",
+      "summary": "Session 9 · Retold by Bramwell · The Pirate Queen.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "9"
+        ],
+        [
+          "Recap voice",
+          "Bramwell"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nAn encounter after the play led to imprisonment in a dangerous mansion. The adventurers escaped their cells, found magical items and met [[The Pirate Queen]], who bargained over [[Velka]], [[Jimsko]] and her enemies in [[Luskan]].\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 9
+      }
+    },
+    {
+      "id": "saga-1-session-10",
+      "title": "Saga I — Session 10: The Ledger House",
+      "category": "Chronicle",
+      "summary": "Session 10 · Retold by Fenwick · The Ledger House.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "10"
+        ],
+        [
+          "Recap voice",
+          "Fenwick"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nThe party infiltrated the [[Ledger House]] and rescued both [[Velka]] and [[Jimsko]]. They learned of the [[Moonfall Vault]], but [[The Pirate Queen]] had been listening. With [[Flynn]]’s help, they prepared to sail away from [[Luskan]].\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 10
+      }
+    },
+    {
+      "id": "saga-1-session-11",
+      "title": "Saga I — Session 11: To Sea",
+      "category": "Chronicle",
+      "summary": "Session 11 · Retold by Amel · To Sea.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "11"
+        ],
+        [
+          "Recap voice",
+          "Amel"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nThe company returned to [[Port Llast]], then left [[Velka]], [[Vesper]] and [[Princess Yulia]] on land while setting sail. Strange sea creatures attacked their vessel as the party pursued the hidden [[Moonfall Vault]].\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 11
+      }
+    },
+    {
+      "id": "saga-1-session-12",
+      "title": "Saga I — Session 12: Beneath the Moon",
+      "category": "Chronicle",
+      "summary": "Session 12 · Retold by Luna · Beneath the Moon.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "12"
+        ],
+        [
+          "Recap voice",
+          "Luna"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nA moonlit reading of the [[Moon Scroll]] opened the waters on [[Moonfall Island]]. The adventurers entered the [[Moonfall Vault]], fought the Crab Queen and activated a statue of [[Selûne]]. An elder lich appeared and cast them into the [[Shadowfell]].\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 12
+      }
+    },
+    {
+      "id": "saga-1-session-13",
+      "title": "Saga I — Session 13: The Shadowfell",
+      "category": "Chronicle",
+      "summary": "Session 13 · Retold by Bramwell · The Shadowfell.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "13"
+        ],
+        [
+          "Recap voice",
+          "Bramwell"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nThe company awakened in the bleak [[Shadowfell]] and crossed black fields to [[Blackreach]]. Entry required giving up a memory. Among the city’s illusions and unnerving merchants, the party began searching for a [[Shadow Crossing]].\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 13
+      }
+    },
+    {
+      "id": "saga-1-session-14",
+      "title": "Saga I — Session 14: The Eye of Memories",
+      "category": "Chronicle",
+      "summary": "Session 14 · Retold by Fenwick · The Eye of Memories.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "14"
+        ],
+        [
+          "Recap voice",
+          "Fenwick"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nSeeking a route home in [[Blackreach]], the group visited the library and [[Eye of Memories]], learning of the mysterious [[Keeper]] and the last [[Shadow Crossing]]. The Eye released a hostile creature of stolen voices and memories.\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 14
+      }
+    },
+    {
+      "id": "saga-1-session-15",
+      "title": "Saga I — Session 15: A Missing Memory",
+      "category": "Chronicle",
+      "summary": "Session 15 · Retold by Amel · A Missing Memory.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "15"
+        ],
+        [
+          "Recap voice",
+          "Amel"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nAfter surviving the battle at the [[Eye of Memories]], the party searched [[Blackreach]] for an escaped memory. Their investigation turned toward a girl seen earlier in the city, with new signs of strange magic and uncertain allies.\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 15
+      }
+    },
+    {
+      "id": "saga-1-session-16",
+      "title": "Saga I — Session 16: The Girl and the Knight",
+      "category": "Chronicle",
+      "summary": "Session 16 · Retold by Luna · The Girl and the Knight.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "16"
+        ],
+        [
+          "Recap voice",
+          "Luna"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\nThe company found [[Annabel]] and learned she could guide them toward the [[Keeper]]. A confrontation with the Black Knight in [[Blackreach]] was abruptly ended by their powerful companion [[Verren]].\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 16
+      }
+    },
+    {
+      "id": "saga-1-session-17",
+      "title": "Saga I — Session 17: The Unforgotten",
+      "category": "Chronicle",
+      "summary": "Session 17 · Retold by The Company · The Unforgotten.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "I"
+        ],
+        [
+          "Session",
+          "17"
+        ],
+        [
+          "Recap voice",
+          "The Company"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## The adventure\n\n[[Annabel]] was briefly reunited with [[Ariana]] and showed the party the entrance to the [[Forgotten District]]. There they defended the [[Keeper]] from the Unforgotten while it opened a [[Shadow Crossing]]. They escaped the [[Shadowfell]] and awoke in a wheat field on the Material Plane.\n\n## Continue exploring\n\n[[Campaign Chronicle]] · [[The Four Seasons]]",
+      "session": {
+        "saga": "I",
+        "number": 17
+      }
+    },
+    {
+      "id": "saga-2-session-01",
+      "title": "Saga II — A Name at the Ford",
+      "category": "Chronicle",
+      "summary": "The company emerges from the Shadowfell and begins Saga II.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "II"
+        ],
+        [
+          "Chronicle entry",
+          "1"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## At the table\n\nAfter returning from the [[Shadowfell]], the travelers and [[Verren]] journeyed toward [[Kestrel Ford]]. Along the road they helped [[Lysa]], encountered goblins and a sheep-related misadventure, and eventually chose a name for their company: [[The Four Seasons]]. [[Verren]] later parted ways with the others to pursue his own recovery.\n\n*This recap covers only events confirmed to have happened in play.*",
+      "session": {
+        "saga": "II",
+        "number": 1
+      }
+    },
+    {
+      "id": "saga-2-session-02",
+      "title": "Saga II — A Crown in Thamor",
+      "category": "Chronicle",
+      "summary": "The travelers attend the young king’s knighting.",
+      "aliases": [],
+      "facts": [
+        [
+          "Saga",
+          "II"
+        ],
+        [
+          "Chronicle entry",
+          "2"
+        ]
+      ],
+      "icon": "⌛",
+      "cover": "",
+      "body": "## At the table\n\nThe Four Seasons traveled from [[Kestrel Ford]] to [[Thamor]], stabled their horses at the [[Thamor Stables]], met [[Cinder]], explored the city and attended [[King Arven I]]’s knighting ceremony in [[Crown Square]]. An arrow interrupted the proceedings; [[Bramwell Elixor]] intervened to block the attack. Further commotion surrounded the ceremony. This is the latest publicly recorded chapter of the party’s Saga II travels.\n\n*This recap covers only events confirmed to have happened in play.*",
+      "session": {
+        "saga": "II",
+        "number": 2
+      }
     }
-  ]
+  ],
+  "atlas": {
+    "version": 1,
+    "regions": [
+      {
+        "id": "coast",
+        "name": "Sword Coast",
+        "subtitle": "Salt roads · northern shores · the first voyage"
+      },
+      {
+        "id": "threskel",
+        "name": "Threskel & Thamor",
+        "subtitle": "Saga II · roads, banners and a young crown"
+      },
+      {
+        "id": "shadow",
+        "name": "The Shadowfell",
+        "subtitle": "A realm apart · memories and their price"
+      }
+    ],
+    "pins": [
+      {
+        "id": "port-llast",
+        "region": "coast",
+        "x": 48,
+        "y": 55
+      },
+      {
+        "id": "lighthouse",
+        "region": "coast",
+        "x": 39,
+        "y": 61
+      },
+      {
+        "id": "caverns-lior",
+        "region": "coast",
+        "x": 37,
+        "y": 69
+      },
+      {
+        "id": "neverwinter",
+        "region": "coast",
+        "x": 57,
+        "y": 76
+      },
+      {
+        "id": "neverwinter-wood",
+        "region": "coast",
+        "x": 69,
+        "y": 62
+      },
+      {
+        "id": "druid-sanctuary",
+        "region": "coast",
+        "x": 80,
+        "y": 58
+      },
+      {
+        "id": "luskan",
+        "region": "coast",
+        "x": 48,
+        "y": 28
+      },
+      {
+        "id": "ledger-house",
+        "region": "coast",
+        "x": 65,
+        "y": 24
+      },
+      {
+        "id": "flynn-safehouse",
+        "region": "coast",
+        "x": 60,
+        "y": 36
+      },
+      {
+        "id": "moonfall-island",
+        "region": "coast",
+        "x": 22,
+        "y": 38
+      },
+      {
+        "id": "moonfall-vault",
+        "region": "coast",
+        "x": 20,
+        "y": 61
+      },
+      {
+        "id": "kestrel-ford",
+        "region": "threskel",
+        "x": 32,
+        "y": 66
+      },
+      {
+        "id": "thamor",
+        "region": "threskel",
+        "x": 71,
+        "y": 37
+      },
+      {
+        "id": "thamor-stables",
+        "region": "threskel",
+        "x": 63,
+        "y": 49
+      },
+      {
+        "id": "crown-square",
+        "region": "threskel",
+        "x": 81,
+        "y": 28
+      },
+      {
+        "id": "blackreach",
+        "region": "shadow",
+        "x": 52,
+        "y": 40
+      },
+      {
+        "id": "eye-of-memories",
+        "region": "shadow",
+        "x": 73,
+        "y": 30
+      },
+      {
+        "id": "forgotten-district",
+        "region": "shadow",
+        "x": 70,
+        "y": 69
+      }
+    ],
+    "routes": [
+      {
+        "from": "port-llast",
+        "to": "lighthouse",
+        "kind": "journey"
+      },
+      {
+        "from": "lighthouse",
+        "to": "caverns-lior",
+        "kind": "journey"
+      },
+      {
+        "from": "port-llast",
+        "to": "neverwinter",
+        "kind": "journey"
+      },
+      {
+        "from": "neverwinter",
+        "to": "neverwinter-wood",
+        "kind": "journey"
+      },
+      {
+        "from": "neverwinter-wood",
+        "to": "druid-sanctuary",
+        "kind": "journey"
+      },
+      {
+        "from": "druid-sanctuary",
+        "to": "luskan",
+        "kind": "journey"
+      },
+      {
+        "from": "luskan",
+        "to": "ledger-house",
+        "kind": "journey"
+      },
+      {
+        "from": "luskan",
+        "to": "flynn-safehouse",
+        "kind": "journey"
+      },
+      {
+        "from": "luskan",
+        "to": "port-llast",
+        "kind": "voyage"
+      },
+      {
+        "from": "port-llast",
+        "to": "moonfall-island",
+        "kind": "voyage"
+      },
+      {
+        "from": "moonfall-island",
+        "to": "moonfall-vault",
+        "kind": "portal"
+      },
+      {
+        "from": "blackreach",
+        "to": "eye-of-memories",
+        "kind": "journey"
+      },
+      {
+        "from": "blackreach",
+        "to": "forgotten-district",
+        "kind": "journey"
+      },
+      {
+        "from": "kestrel-ford",
+        "to": "thamor",
+        "kind": "journey"
+      },
+      {
+        "from": "thamor-stables",
+        "to": "crown-square",
+        "kind": "journey"
+      }
+    ],
+    "connections": [
+      {
+        "from": "the-four-seasons",
+        "to": "bramwell-elixor",
+        "label": "adventurer"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "luna",
+        "label": "adventurer"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "bjorn",
+        "label": "adventurer"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "fenwick",
+        "label": "former member"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "amel",
+        "label": "companion"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "brick",
+        "label": "companion"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "jimsko",
+        "label": "ally"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "yulia",
+        "label": "fellow traveler"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "velka",
+        "label": "complicated history"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "moon-scroll",
+        "label": "recovered"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "port-llast",
+        "label": "journey began"
+      },
+      {
+        "from": "the-four-seasons",
+        "to": "kestrel-ford",
+        "label": "chose their name"
+      },
+      {
+        "from": "jimsko",
+        "to": "port-llast",
+        "label": "home"
+      },
+      {
+        "from": "jimsko",
+        "to": "moonfall-vault",
+        "label": "revealed its existence"
+      },
+      {
+        "from": "moon-scroll",
+        "to": "selune",
+        "label": "moonlit prophecy"
+      },
+      {
+        "from": "moon-scroll",
+        "to": "moonfall-island",
+        "label": "opened portal"
+      },
+      {
+        "from": "yulia",
+        "to": "neverwinter",
+        "label": "princess"
+      },
+      {
+        "from": "arven",
+        "to": "thamor",
+        "label": "young king"
+      },
+      {
+        "from": "arven",
+        "to": "crown-square",
+        "label": "knighting ceremony"
+      },
+      {
+        "from": "cinder",
+        "to": "thamor",
+        "label": "met here"
+      },
+      {
+        "from": "luna",
+        "to": "cinder",
+        "label": "patron connection"
+      },
+      {
+        "from": "velka",
+        "to": "shar",
+        "label": "faith and knowledge"
+      },
+      {
+        "from": "pirate-queen",
+        "to": "luskan",
+        "label": "influence"
+      },
+      {
+        "from": "pirate-queen",
+        "to": "ledger-house",
+        "label": "used"
+      },
+      {
+        "from": "flynn",
+        "to": "luskan",
+        "label": "contact"
+      },
+      {
+        "from": "flynn",
+        "to": "flynn-safehouse",
+        "label": "safehouse"
+      },
+      {
+        "from": "annabel",
+        "to": "ariana",
+        "label": "mother"
+      },
+      {
+        "from": "annabel",
+        "to": "keeper",
+        "label": "led party to"
+      },
+      {
+        "from": "keeper",
+        "to": "shadow-crossing",
+        "label": "opened"
+      },
+      {
+        "from": "eye-of-memories",
+        "to": "blackreach",
+        "label": "within"
+      },
+      {
+        "from": "blackreach",
+        "to": "shadowfell",
+        "label": "within"
+      },
+      {
+        "from": "moonfall-vault",
+        "to": "shadowfell",
+        "label": "cast party into"
+      },
+      {
+        "from": "neverwinter-wood",
+        "to": "druid-sanctuary",
+        "label": "hidden sanctuary"
+      },
+      {
+        "from": "fenwick",
+        "to": "druid-sanctuary",
+        "label": "visited"
+      },
+      {
+        "from": "bramwell-elixor",
+        "to": "helm",
+        "label": "cleric"
+      },
+      {
+        "from": "wiwi",
+        "to": "neverwinter",
+        "label": "met on road"
+      },
+      {
+        "from": "thamor",
+        "to": "mourktar",
+        "label": "political tension"
+      }
+    ]
+  },
+  "quests": []
 }

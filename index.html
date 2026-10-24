@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Daughter of the Moon Wiki — The Living Atlas">
+  <meta property="og:description" content="Follow the adventures of The Four Seasons: people, places, sessions and living lore.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://daughterofthemoon.quest/">
+  <meta property="og:image" content="https://daughterofthemoon.quest/assets/uploads/moonlit-citadel-illustration.webp">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0b111b">
   <meta name="description" content="Daughter of the Moon Wiki — a living encyclopedia of the Daughter of the Moon campaign and the adventurers known as The Four Seasons.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https:; connect-src 'self' https://api.github.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'">
@@ -10,6 +16,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/app.js" defer></script>
+  <script src="assets/atlas.js" defer></script>
 </head>
 <body>
   <div class="aurora" aria-hidden="true"></div>
@@ -23,7 +30,10 @@
       <a href="#/" data-nav="home">The Archive</a>
       <a href="#/category/Characters" data-nav="characters">Characters</a>
       <a href="#/category/Locations" data-nav="places">Locations</a>
-      <a href="#/article/campaign-chronicle" data-nav="chronicle">Chronicle</a>
+      <a href="#/atlas" data-nav="atlas">World Atlas</a>
+      <a href="#/connections" data-nav="connections">Connections</a>
+      <a href="#/journal" data-nav="chronicle">Journal</a>
+      <a href="#/quests" data-nav="quests">Quest Board</a>
     </nav>
     <div class="top-actions">
       <button class="btn-icon search-open" id="searchOpen" type="button" aria-label="Search the wiki"><span aria-hidden="true">⌕</span><kbd>/</kbd></button>
@@ -41,7 +51,10 @@
       <div class="side-section-title side-gap">QUICK PASSAGES</div>
       <div class="side-shortcuts">
         <a href="#/article/the-four-seasons"><span>❖</span> The Four Seasons</a>
-        <a href="#/article/campaign-chronicle"><span>⌛</span> The Chronicle</a>
+        <a href="#/atlas"><span>⌖</span> World Atlas</a>
+        <a href="#/connections"><span>✧</span> Connections</a>
+        <a href="#/journal"><span>⌛</span> Session Journal</a>
+        <a href="#/quests"><span>⚑</span> Quest Board</a>
         <a href="#/article/how-to-use"><span>✎</span> How to Contribute</a>
       </div>
       <div class="sidebar-quote"><span class="quote-mark">“</span><p>Every name a story.<br>Every story a world.</p><span class="small-line"></span><small>THE DAUGHTER OF THE MOON</small></div>
@@ -64,7 +77,9 @@
         <div class="field-two"><label>ARTICLE TITLE<input type="text" id="editTitle" maxlength="120" placeholder="e.g. The Silver Road"></label><label>COLLECTION<select id="editCategory"></select></label></div>
         <label>SHORT DESCRIPTION<textarea id="editSummary" rows="2" maxlength="350" placeholder="A short introduction for the article card..."></textarea></label>
         <div class="field-two"><label>ALIASES / OTHER NAMES<input id="editAliases" type="text" placeholder="Comma-separated alternative names"></label><label>INFOBOX FACTS<textarea id="editFacts" rows="2" placeholder="Home: Neverwinter&#10;Title: Captain"></textarea></label></div>
+        <div class="session-fields" id="sessionFields"><div class="field-two"><label>SAGA<select id="editSaga"><option value="">Not a session entry</option><option value="I">Saga I</option><option value="II">Saga II</option><option value="III">Saga III</option></select></label><label>SESSION NUMBER<input id="editSession" type="number" min="1" max="999" placeholder="e.g. 18"></label></div></div>
         <div class="editor-cover-row"><div class="editor-cover-thumb" id="editCoverThumb">✦</div><div><strong>Cover illustration</strong><p id="coverLabel">Optional. Add a JPG, PNG, GIF, or WebP.</p><button class="btn outline mini" id="chooseCover" type="button">Choose image</button> <button class="btn subtle mini" id="removeCover" type="button">Remove</button></div></div>
+        <div class="gallery-manager"><div><strong>Illustration gallery</strong><p>Upload portraits, maps or screenshots. Select an image to remove it.</p></div><div id="editGalleryItems" class="edit-gallery-items"></div><button class="btn outline mini" type="button" id="addGalleryImage">＋ Add gallery images</button></div>
         <div class="textarea-top"><label for="editBody">ARTICLE TEXT</label><span>Markdown + <code>[[Wiki links]]</code></span></div>
         <div class="toolbar" aria-label="Article editing tools"><button type="button" data-insert="h2" title="Section heading">H₂</button><button type="button" data-insert="bold" title="Bold"><b>B</b></button><button type="button" data-insert="italic" title="Italic"><i>I</i></button><button type="button" data-insert="list" title="Bullet list">≡</button><button type="button" data-insert="quote" title="Quote">❝</button><button type="button" id="insertWikiLink" title="Insert internal link">↗ Wiki link</button><button type="button" id="insertExternalLink" title="Insert external link">⛓ Web link</button><button type="button" id="insertImage" title="Attach an illustration">▧ Image</button></div>
         <textarea id="editBody" class="body-input" spellcheck="true" placeholder="# Article heading&#10;Write a story. Mention [[Neverwinter]] to link to its entry..."></textarea>
@@ -89,8 +104,41 @@
     <div class="publish-foot"><p id="publishProgress" aria-live="polite"></p><button class="btn primary" id="publishNow" type="button">↑ Publish to GitHub</button></div>
   </dialog>
   <dialog id="lightboxDialog" class="lightbox-dialog"><button type="button" class="x-button" data-close="lightboxDialog" aria-label="Close image">×</button><img id="lightboxImage" alt=""><p id="lightboxCaption"></p></dialog>
+  <dialog id="questDialog" class="small-dialog living-edit-dialog">
+    <div class="dialog-header"><div><small class="eyebrow">ADVENTURER'S NOTICE BOARD</small><h2 id="questHeading">Post a quest</h2></div><button class="x-button" data-close="questDialog" type="button" aria-label="Close">×</button></div>
+    <p class="edit-hint">Keep this public board spoiler-safe. Saving creates a local draft; Publish in Edit wiki shares it with the party.</p>
+    <label>QUEST TITLE<input id="questTitle" maxlength="120" placeholder="A new rumor from the tavern…"></label>
+    <div class="field-two"><label>STATUS<select id="questStatus"><option value="Open">Open</option><option value="In progress">In progress</option><option value="Completed">Completed</option><option value="Archived">Archived</option></select></label><label>QUEST GIVER / CONTACT<input id="questGiver" maxlength="120" placeholder="NPC or organization"></label></div>
+    <label>QUEST DETAILS <small>(Markdown and [[wiki links]] supported)</small><textarea rows="6" id="questBody" placeholder="Write the public quest description and any clues the party may know…"></textarea></label>
+    <label>REWARD / NOTES <input id="questReward" maxlength="180" placeholder="Optional reward or note"></label>
+    <div class="quest-cover-control"><button class="btn outline mini" type="button" id="questChooseImage">＋ Attach image</button><button class="btn subtle mini" type="button" id="questRemoveImage">Remove image</button><span id="questImageName">No illustration</span></div>
+    <div class="living-action-row"><button class="btn danger" type="button" id="questDelete">Delete</button><button class="btn ghost" type="button" data-close="questDialog">Cancel</button><button class="btn primary" type="button" id="questSave">Save local draft</button></div>
+  </dialog>
+  <dialog id="mapDialog" class="small-dialog living-edit-dialog">
+    <div class="dialog-header"><div><small class="eyebrow">THE CARTOGRAPHER'S DESK</small><h2>Map & route editor</h2></div><button class="x-button" data-close="mapDialog" type="button" aria-label="Close">×</button></div>
+    <p class="edit-hint">Pins are illustrative, not GPS positions. Move them by dragging on the map while editing, or enter coordinates below.</p>
+    <label>ARTICLE TO PLACE<select id="mapArticle"></select></label>
+    <div class="field-two"><label>MAP / REGION<select id="mapRegion"></select></label><label>PIN X (0–100)<input id="mapX" type="number" min="4" max="96"></label></div>
+    <label>PIN Y (0–100)<input id="mapY" type="number" min="5" max="95"></label>
+    <div class="living-action-row"><button class="btn danger" type="button" id="mapRemove">Remove pin</button><button class="btn primary" type="button" id="mapSave">Save pin draft</button></div>
+    <hr class="modal-divider"><h3>Connect journey stops</h3>
+    <div class="field-two"><label>FROM<select id="routeFrom"></select></label><label>TO<select id="routeTo"></select></label></div>
+    <label>ROUTE STYLE<select id="routeKind"><option value="journey">Overland</option><option value="voyage">Sea voyage</option><option value="portal">Magical passage</option></select></label>
+    <button class="btn outline" type="button" id="routeAdd">＋ Add route</button>
+    <div id="routeList" class="edit-relationship-list"></div>
+  </dialog>
+  <dialog id="connectionDialog" class="small-dialog living-edit-dialog">
+    <div class="dialog-header"><div><small class="eyebrow">THREADS OF FATE</small><h2>Edit connections</h2></div><button class="x-button" data-close="connectionDialog" type="button" aria-label="Close">×</button></div>
+    <p class="edit-hint">Create named links between any two wiki articles. These become interactive connections in the constellation.</p>
+    <div class="field-two"><label>FIRST ENTRY<select id="connectFrom"></select></label><label>SECOND ENTRY<select id="connectTo"></select></label></div>
+    <label>RELATIONSHIP<input id="connectLabel" maxlength="85" placeholder="e.g. ally, rescued, fought beside"></label>
+    <button class="btn primary" id="connectAdd" type="button">＋ Add connection</button>
+    <div id="connectionList" class="edit-relationship-list"></div>
+  </dialog>
   <input id="coverInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
   <input id="inlineImageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+  <input id="galleryInput" type="file" multiple accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+  <input id="questImageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
   <input id="backupInput" type="file" accept="application/json,.json" hidden>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
