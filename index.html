@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b111b">
+  <meta name="description" content="Daughter of the Moon Wiki — a living encyclopedia of the Daughter of the Moon campaign and the adventurers known as The Four Seasons.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https:; connect-src 'self' https://api.github.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'">
+  <title>Daughter of the Moon Wiki · An Atlas of Moonlight & Legend</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="starfield" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <header class="topbar">
+    <a href="#/" class="brand" aria-label="Daughter of the Moon Wiki home">
+      <span class="brand-mark" aria-hidden="true"><span class="brand-moon">☾</span><span class="brand-fleur">✥</span></span>
+      <span class="brand-copy"><strong>DAUGHTER OF THE MOON</strong><small>W I K I <span class="brand-tick">✦</span> A L M A N A C</small></span>
+    </a>
+    <nav class="topnav" aria-label="Main navigation">
+      <a href="#/" data-nav="home">The Archive</a>
+      <a href="#/category/Characters" data-nav="characters">Characters</a>
+      <a href="#/category/Locations" data-nav="places">Locations</a>
+      <a href="#/article/campaign-chronicle" data-nav="chronicle">Chronicle</a>
+    </nav>
+    <div class="top-actions">
+      <button class="btn-icon search-open" id="searchOpen" type="button" aria-label="Search the wiki"><span aria-hidden="true">⌕</span><kbd>/</kbd></button>
+      <button class="btn ghost smaller" id="editorHub" type="button"><span aria-hidden="true">✎</span> <span class="desktop-only">Edit wiki</span></button>
+      <button class="btn primary smaller" id="newEntry" type="button"><span aria-hidden="true">＋</span> <span class="desktop-only">New entry</span></button>
+    </div>
+  </header>
+  <div class="rune-rule" aria-hidden="true"><span>✧</span></div>
+  <div class="site-grid">
+    <aside class="sidebar" aria-label="Wiki navigation">
+      <div class="side-title"><span>◈</span> THE ARCHIVE <span class="side-small">NAVIGATION</span></div>
+      <div class="side-search" id="sidebarSearch" role="button" tabindex="0"><span>⌕</span> Search the chronicles… <kbd>/</kbd></div>
+      <div class="side-section-title">THE COMPENDIUM</div>
+      <div id="categoryLinks" class="side-category-list"></div>
+      <div class="side-section-title side-gap">QUICK PASSAGES</div>
+      <div class="side-shortcuts">
+        <a href="#/article/the-four-seasons"><span>❖</span> The Four Seasons</a>
+        <a href="#/article/campaign-chronicle"><span>⌛</span> The Chronicle</a>
+        <a href="#/article/how-to-use"><span>✎</span> How to Contribute</a>
+      </div>
+      <div class="sidebar-quote"><span class="quote-mark">“</span><p>Every name a story.<br>Every story a world.</p><span class="small-line"></span><small>THE DAUGHTER OF THE MOON</small></div>
+      <div class="side-bottom">A living record of adventures <span>✦</span> Made for The Four Seasons</div>
+    </aside>
+    <main id="main" tabindex="-1"><div class="page-loading">Opening the archive…</div></main>
+    <aside class="rightbar" id="rightbar" aria-label="Related articles"></aside>
+  </div>
+  <footer class="footer"><span>☾</span><div><b>DAUGHTER OF THE MOON WIKI</b><small>Adventures of The Four Seasons · Unofficial fan campaign archive</small></div><a href="#/article/how-to-use">The scribe's guide ↗</a></footer>
+  <dialog id="searchDialog" class="search-dialog">
+    <div class="search-head"><span class="search-glyph">⌕</span><input id="searchInput" type="search" autocomplete="off" placeholder="Search people, places, legends…" aria-label="Search wiki"><button class="x-button" type="button" data-close="searchDialog" aria-label="Close search">×</button></div>
+    <p class="search-hint">Search the entire compendium · select a result to open</p>
+    <div id="searchResults" class="search-results"></div>
+  </dialog>
+  <dialog id="editorDialog" class="editor-dialog">
+    <div class="dialog-header"><div><small class="eyebrow">THE SCRIBE'S TABLE</small><h2 id="editorHeading">Edit article</h2></div><button class="x-button" type="button" data-close="editorDialog" aria-label="Close editor">×</button></div>
+    <p class="editor-note"><span>✧</span> Every change is a local draft until you publish. To protect the campaign, only add lore your players are meant to see.</p>
+    <div class="editor-layout">
+      <div class="editor-fields">
+        <div class="field-two"><label>ARTICLE TITLE<input type="text" id="editTitle" maxlength="120" placeholder="e.g. The Silver Road"></label><label>COLLECTION<select id="editCategory"></select></label></div>
+        <label>SHORT DESCRIPTION<textarea id="editSummary" rows="2" maxlength="350" placeholder="A short introduction for the article card..."></textarea></label>
+        <div class="field-two"><label>ALIASES / OTHER NAMES<input id="editAliases" type="text" placeholder="Comma-separated alternative names"></label><label>INFOBOX FACTS<textarea id="editFacts" rows="2" placeholder="Home: Neverwinter&#10;Title: Captain"></textarea></label></div>
+        <div class="editor-cover-row"><div class="editor-cover-thumb" id="editCoverThumb">✦</div><div><strong>Cover illustration</strong><p id="coverLabel">Optional. Add a JPG, PNG, GIF, or WebP.</p><button class="btn outline mini" id="chooseCover" type="button">Choose image</button> <button class="btn subtle mini" id="removeCover" type="button">Remove</button></div></div>
+        <div class="textarea-top"><label for="editBody">ARTICLE TEXT</label><span>Markdown + <code>[[Wiki links]]</code></span></div>
+        <div class="toolbar" aria-label="Article editing tools"><button type="button" data-insert="h2" title="Section heading">H₂</button><button type="button" data-insert="bold" title="Bold"><b>B</b></button><button type="button" data-insert="italic" title="Italic"><i>I</i></button><button type="button" data-insert="list" title="Bullet list">≡</button><button type="button" data-insert="quote" title="Quote">❝</button><button type="button" id="insertWikiLink" title="Insert internal link">↗ Wiki link</button><button type="button" id="insertExternalLink" title="Insert external link">⛓ Web link</button><button type="button" id="insertImage" title="Attach an illustration">▧ Image</button></div>
+        <textarea id="editBody" class="body-input" spellcheck="true" placeholder="# Article heading&#10;Write a story. Mention [[Neverwinter]] to link to its entry..."></textarea>
+        <div class="editor-tips">Tip: names of existing articles become links automatically. Write <code>[[Bramwell Elixor|Bramwell]]</code> to give a link custom text.</div>
+      </div>
+      <section class="editor-preview"><div class="preview-caption">✧ LIVE PREVIEW</div><div id="editorPreview"></div></section>
+    </div>
+    <div class="editor-bottom"><button class="btn danger" id="deleteArticle" type="button">Delete entry</button><span class="editor-draft-note" id="editorDraftNote">Your changes will be saved to this browser first.</span><button class="btn ghost" id="cancelEdit" type="button">Cancel</button><button class="btn primary" id="saveDraft" type="button">✧ Save draft</button></div>
+  </dialog>
+  <dialog id="linkDialog" class="small-dialog">
+    <div class="dialog-header"><div><small class="eyebrow">CONNECT THE STORIES</small><h2>Insert a wiki link</h2></div><button class="x-button" data-close="linkDialog" type="button" aria-label="Close link dialog">×</button></div>
+    <label>FIND ARTICLE<input type="search" id="linkSearch" placeholder="Search article titles…"></label><div class="link-picker-list" id="linkPicker"></div>
+    <p class="small-tip">Select an entry to insert a working link at your cursor.</p>
+  </dialog>
+  <dialog id="publishDialog" class="publish-dialog">
+    <div class="dialog-header"><div><small class="eyebrow">KEEPING THE ARCHIVE</small><h2>Wiki editor & publishing</h2></div><button class="x-button" data-close="publishDialog" type="button" aria-label="Close publishing dialog">×</button></div>
+    <div class="status-summary" id="draftStatus"></div>
+    <div class="publish-explain"><h3>How publication works</h3><p>Editing works locally, even before you publish. To make changes visible to everyone, use a GitHub <b>fine-grained personal access token</b> restricted to this wiki repository with <b>Contents: Read and write</b>. The token is kept only in memory while this page is open — never in wiki files or browser storage.</p><p>Keep the token private. Other players can read the wiki without one. A token holder can update the public content.</p></div>
+    <div class="publish-fields"><label>GITHUB REPOSITORY<input id="repoDisplay" type="text" readonly value="nickdosc/the-four-season-wiki"></label><label>GITHUB EDITOR TOKEN<input id="githubToken" type="password" autocomplete="off" placeholder="github_pat_…"></label></div>
+    <div class="publish-utilities"><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">Create a restricted token ↗</a><button id="exportDrafts" type="button" class="plain-link">↓ Download complete backup</button><button id="importDrafts" type="button" class="plain-link">↑ Restore backup</button></div>
+    <p class="publish-warning">Never paste your token into a wiki article, screenshot, issue, or chat. Publishing checks for remote edits and stops instead of silently overwriting someone else's work.</p>
+    <div class="publish-foot"><p id="publishProgress" aria-live="polite"></p><button class="btn primary" id="publishNow" type="button">↑ Publish to GitHub</button></div>
+  </dialog>
+  <dialog id="lightboxDialog" class="lightbox-dialog"><button type="button" class="x-button" data-close="lightboxDialog" aria-label="Close image">×</button><img id="lightboxImage" alt=""><p id="lightboxCaption"></p></dialog>
+  <input id="coverInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+  <input id="inlineImageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+  <input id="backupInput" type="file" accept="application/json,.json" hidden>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
