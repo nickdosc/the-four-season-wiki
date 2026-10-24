@@ -1,0 +1,81 @@
+/* Daughter of the Moon Wiki — functionality-only UI refinement. Does not alter article text. */
+:root{--thread-gold:#f2cf86;--thread-ice:#b5e3f5;--thread-muted:#bac9d7}
+/* Quest cards use a dark surface, unlike parchment article pages. Never inherit parchment ink here. */
+.quest-card .article-prose,.quest-card .article-prose p,.quest-card .article-prose li,.quest-card .article-prose strong,.quest-card .article-prose em,.quest-card .article-prose span{color:#f2ede2!important}
+.quest-card .article-prose h2,.quest-card .article-prose h3,.quest-card .article-prose h4{color:#f6d9a1!important;border-color:#867a60}
+.quest-card .article-prose a,.quest-card .article-prose a.wiki-link,.quest-card .article-prose a.external-link{color:#ffe1a3!important;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;border-color:#f5d89a!important}
+.quest-card .article-prose a:hover,.quest-card .article-prose a:focus-visible{color:#fff6d9!important;background:#765c3480}
+.quest-card .article-prose blockquote{color:#fff0ce!important;background:#c9b17b1a;border-left-color:#e1bd73}
+.quest-card .article-prose code{color:#ffe5ad;background:#0b1822;padding:.1em .2em}
+.quest-card .quest-giver{color:#c8cbd1}.quest-card .quest-reward{color:#f4deb2}.quest-card-image{object-fit:contain;background:#0b1624}
+
+/* Double-helix interaction — two flowing strands, glowing nodes, separate accessible list. */
+.dna-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 18px;position:relative;z-index:2}
+.dna-lookup{position:relative;flex:1 1 245px;min-width:0}.dna-search{width:100%;min-width:0;display:block;border:1px solid #857552;background:#19293b;color:#fff2d5;border-radius:8px;padding:12px 15px;font-size:13px}.dna-search::placeholder{color:#bcc8d3}
+.dna-find-results{position:absolute;z-index:10;top:calc(100% + 5px);left:0;right:0;max-height:280px;overflow:auto;padding:7px;background:#172638;border:1px solid #b09b69;border-radius:8px;box-shadow:0 16px 36px #000b}
+.dna-find-results[hidden]{display:none}.dna-find-results p{color:#e8d7b7;padding:8px 12px;margin:0}.dna-suggestion{color:#eee6d4;display:block;text-align:left;width:100%;padding:11px 12px;background:none;border:0;border-radius:5px}.dna-suggestion:hover{background:#34465b}
+.dna-focus-select{max-width:min(100%,255px);flex:0 1 220px}
+.dna-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(240px,.83fr);gap:18px;align-items:stretch;min-width:0}
+.dna-stage{position:relative;min-width:0;overflow:hidden;border:1px solid #a58e5c85;border-radius:14px;min-height:630px;background:radial-gradient(ellipse 70% 65% at 50% 55%,#273b5d 0,#121e33 58%,#0b1221 100%);box-shadow:inset 0 0 70px #030711ab,0 18px 44px #0005;isolation:isolate;outline-offset:2px}
+.dna-stage:before,.dna-stage:after{content:"";position:absolute;inset:-30%;pointer-events:none;z-index:-1}
+.dna-stage:before{background-image:radial-gradient(circle,#eacb8d 1px,transparent 1.9px),radial-gradient(circle,#acc6e3 1px,transparent 1.8px);background-size:80px 100px,121px 91px;opacity:.34;animation:dna-sky 60s linear infinite}
+.dna-stage:after{background:radial-gradient(circle at 45% 52%,#bb95ef17,transparent 40%);animation:dna-breathe 8s ease-in-out infinite alternate}
+.dna-stage-heading{position:absolute;top:12px;left:16px;right:16px;display:flex;align-items:baseline;flex-wrap:wrap;gap:7px 14px;z-index:2;pointer-events:none}
+.dna-stage-heading .eyebrow{font-size:10px;letter-spacing:2px;color:#efce94}.dna-stage-heading strong{font:clamp(16px,1.65vw,24px) var(--display);color:#fff1d4}.dna-stage-heading small{font-size:11px;color:#c0d6e4}
+.dna-svg{display:block;position:relative;width:100%;height:min(620px,65vw);min-height:480px;overflow:visible;user-select:none}
+.dna-rung{stroke:#c5baad;stroke-width:1.7;stroke-opacity:.22;stroke-dasharray:4 11;animation:dna-rung-flow 30s linear infinite}
+.dna-rail{fill:none;stroke-width:12;stroke-linecap:round;stroke-opacity:.78;filter:drop-shadow(0 0 12px #aeccec6e);stroke-dasharray:22 13;animation:dna-strand 19s linear infinite}
+.dna-rail.gold{stroke:url(#strandGoldGradient)}.dna-rail.blue{stroke:url(#strandPurpleGradient);animation-direction:reverse}
+.dna-node{cursor:pointer;outline:none;transition:opacity .2s}
+.dna-node-halo{fill:#c6cefa14;stroke:#ffffff37;stroke-width:1.2;transform-box:fill-box;transform-origin:center;animation:dna-pulse 3.5s ease-in-out infinite alternate}
+.dna-node-core{fill:#223048;stroke:#f8c979;stroke-width:2.7;filter:drop-shadow(0 0 10px #e6ba6f90)}
+.dna-node.aqua .dna-node-core{stroke:#b0d8eb;filter:drop-shadow(0 0 10px #77dcf3a0)}
+.dna-node-icon{font-size:23px;fill:#f9e3aa;pointer-events:none}.dna-node.aqua .dna-node-icon{fill:#c7eefa}
+.dna-node-text{font:20px Georgia,serif;fill:#f7eee0;stroke:#111a29;stroke-width:3;paint-order:stroke;pointer-events:none}
+.dna-node:hover .dna-node-core,.dna-node:focus .dna-node-core{fill:#6b5970;stroke-width:5;filter:drop-shadow(0 0 15px #f0d6a8)}
+.dna-node:focus-visible .dna-node-halo{stroke:#fff2c1;stroke-width:4}
+.dna-core-glow{fill:#d2bdf522;stroke:#e2c99566;stroke-width:2;animation:dna-pulse 6s ease-in-out infinite alternate;transform-origin:center;transform-box:fill-box}
+.dna-core-circle{fill:#18253d;stroke:#dac492;stroke-width:2}.dna-center-glyph{fill:#e5d5a9;font-size:31px}
+.dna-controls{display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;padding:0 15px 10px}
+.dna-nav-btn{border:1px solid #9c8b6969;background:#1b2d43;color:#ead7ae;padding:9px 11px;border-radius:7px;font:700 11px var(--ui);transition:border-color .2s,background-color .2s}
+.dna-nav-btn:hover:not(:disabled){border-color:#efd39a;background:#2b4260}.dna-nav-btn:disabled{opacity:.35;cursor:not-allowed}
+.dna-hint{text-align:center;color:#a9c3d6;font-size:11px;margin:3px 15px 15px}
+.dna-stage.motion-paused *,.dna-stage.motion-paused:before,.dna-stage.motion-paused:after{animation-play-state:paused!important}
+.dna-detail{background:linear-gradient(145deg,#1a2a3c,#0f1a2a);border:1px solid #a58a6173;border-radius:12px;padding:23px 20px;min-width:0;display:flex;flex-direction:column;gap:10px;max-height:790px}
+.dna-detail h2{font:clamp(25px,2.3vw,32px)/1.14 var(--display);color:#f6e4b9;margin:0;overflow-wrap:anywhere}
+.dna-detail h3{font:20px var(--display);color:#f4ddad;margin:14px 0 1px}.dna-summary{color:#c7d1d8;font-size:13px;margin:0 0 4px}
+.dna-actions{display:flex;flex-wrap:wrap;gap:7px}.dna-actions>*{flex:1 1 110px;text-align:center;justify-content:center}
+.dna-relations{display:flex;flex-direction:column;gap:7px;overflow-y:auto;overscroll-behavior:contain;min-height:0;padding:1px 4px 4px 1px}
+.dna-relation{display:flex;gap:10px;align-items:center;text-align:left;width:100%;border:1px solid #728aa05a;background:#18293c;padding:10px;border-radius:8px;color:#f0e6d3;transition:background .18s,border-color .18s}
+.dna-relation:hover,.dna-relation:focus-visible{border-color:#dcc18e;background:#263d51}
+.dna-relation-glyph{display:grid;place-items:center;flex:0 0 35px;height:35px;border:1px solid #a59576;border-radius:50%;background:#253950;color:#e4c896;font:21px Georgia,serif}
+.dna-relation-body{display:flex;flex-direction:column;gap:2px;min-width:0}.dna-relation-body strong{font:16px var(--display);overflow-wrap:anywhere}.dna-relation-body small{color:#c5cbd6;font:11px var(--ui);overflow-wrap:anywhere}
+.dna-no-links{font-size:13px;color:#c7d1dc}
+@keyframes dna-strand{to{stroke-dashoffset:-420}}
+@keyframes dna-rung-flow{to{stroke-dashoffset:-200}}
+@keyframes dna-pulse{to{opacity:.7;transform:scale(1.12)}}
+@keyframes dna-sky{to{transform:translate(10%,5%)}}
+@keyframes dna-breathe{to{opacity:.46}}
+/* Region templates are purely visual. Pins and routes remain tied to editable wiki articles. */
+.atlas-custom-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+.map-style-selector{display:flex;gap:8px;align-items:center;color:#e7d3ae;font-size:12px}
+.map-style-selector select{min-width:160px;max-width:210px}
+.new-map-panel{position:relative}
+.new-map-panel summary{cursor:pointer;border:1px solid #a7977370;border-radius:6px;padding:10px 13px;background:#182637;color:#f2d89f;font-size:12px;list-style:none}
+.new-map-panel summary::-webkit-details-marker{display:none}
+.new-map-panel[open] summary{border-color:#e0be78}
+.new-map-form{position:absolute;right:0;top:calc(100% + 6px);z-index:5;width:min(340px,85vw);background:#182b3e;border:1px solid #d5b477;border-radius:9px;padding:15px;box-shadow:0 20px 36px #0009;display:grid;gap:12px}
+.new-map-form input{background:#0f1e30;color:#f9e6cd;border:1px solid #ae966b;border-radius:6px;padding:11px;width:100%;min-width:0}
+.map-style-name{position:absolute;bottom:13px;right:15px;z-index:2;color:#f0dbad;font:italic 11px var(--display);text-shadow:0 1px 5px #0009;pointer-events:none}
+.atlas-surface.map-skin-cartographer{background-color:#493b30;background-image:radial-gradient(ellipse at 30% 35%,#aa8f6380,transparent 62%),repeating-linear-gradient(95deg,#5a463870 0 2px,#46382d70 2px 40px),linear-gradient(135deg,#65503c,#34302b)}
+.atlas-surface.map-skin-moonlit{background-color:#112840;background-image:radial-gradient(circle at 21% 24%,#7eabc89c,transparent 20%),radial-gradient(ellipse at 72% 65%,#8b85c65a,transparent 58%),linear-gradient(155deg,#1e4960,#091627)}
+.atlas-surface.map-skin-woodland{background-color:#1d372e;background-image:radial-gradient(ellipse at 26% 37%,#60906378,transparent 44%),radial-gradient(circle at 76% 58%,#8d9a5f6b,transparent 48%),linear-gradient(155deg,#163d35,#131f24)}
+.atlas-surface.map-skin-highlands{background-color:#4c392d;background-image:radial-gradient(ellipse at 75% 23%,#b98f6080,transparent 44%),radial-gradient(ellipse at 35% 64%,#7c73627d,transparent 50%),linear-gradient(155deg,#70533d,#212d32)}
+.atlas-surface.map-skin-shadow{background-color:#251a35;background-image:radial-gradient(ellipse at 50% 32%,#70568a81,transparent 47%),radial-gradient(ellipse at 24% 75%,#3e62866d,transparent 40%),linear-gradient(155deg,#271d41,#100f1c)}
+.atlas-surface .region-generic-land{opacity:.18}
+.atlas-surface .map-pin,.atlas-surface .pin-name{touch-action:none}
+/* No forced horizontal scrolling or tiny controls on a phone. */
+@media(max-width:1050px){.dna-layout{grid-template-columns:minmax(0,1fr)}.dna-detail{max-height:none}.dna-relations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:340px}}
+@media(max-width:760px){.dna-toolbar{align-items:stretch}.dna-lookup{flex:1 1 100%}.dna-focus-select{flex:1 1 170px;min-width:0;max-width:none}.dna-stage{min-height:420px}.dna-svg{height:360px;min-height:350px}.dna-stage-heading{top:12px;left:12px;right:12px}.dna-stage-heading strong{font-size:17px}.dna-node-text{font-size:23px}.dna-controls{gap:5px}.dna-nav-btn{flex:1 1 auto;padding:10px 6px;font-size:10px}.dna-motion{order:3;flex:1 1 100%}.dna-detail{padding:18px 15px}.dna-relations{grid-template-columns:1fr;max-height:none}.atlas-custom-tools{width:100%;justify-content:stretch;align-items:stretch}.map-style-selector{flex:1 1 100%;justify-content:space-between}.map-style-selector select{flex:1;max-width:none}.new-map-panel{flex:1 1 100%}.new-map-panel summary{text-align:center}.new-map-form{left:0;right:auto;width:min(340px,100%)}.atlas-surface{min-height:310px;aspect-ratio:1/1;max-height:none}.atlas-layout{grid-template-columns:minmax(0,1fr)}.quest-card .article-prose{font-size:15px;line-height:1.7}}
+@media(max-width:440px){.dna-stage{min-height:385px}.dna-svg{height:320px;min-height:320px}.dna-stage-heading small{width:100%;font-size:10px}.dna-hint{font-size:10px}.dna-node-text{font-size:24px}.map-style-selector{flex-wrap:wrap}.map-style-selector select{width:100%}}
+@media(prefers-reduced-motion:reduce){.dna-stage *, .dna-stage:before,.dna-stage:after{animation:none!important;transition:none!important}}
