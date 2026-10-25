@@ -30,6 +30,32 @@
   const safeId = name => name.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 50);
   const makeButton = (text, cls, handler) => { const b = el('button', cls, text); b.type = 'button'; b.addEventListener('click', handler); return b; };
 
+  // Navigation stays entirely in memory. No wiki content or browser history is modified.
+  const starHistory = [];
+  function followStar(nextId) {
+    const next = article(nextId);
+    if(!next || graphFocus === next.id) return;
+    const current = article(graphFocus);
+    if(current) {
+      starHistory.push({id:current.id,page:constellationPage});
+      if(starHistory.length > 50) starHistory.shift();
+    }
+    graphFocus = next.id;
+    constellationPage = 0;
+    renderConnections();
+  }
+  function backToStar() {
+    while(starHistory.length) {
+      const previous = starHistory.pop();
+      if(article(previous.id)) {
+        graphFocus = previous.id;
+        constellationPage = previous.page;
+        renderConnections();
+        return;
+      }
+    }
+  }
+
   function relatedTo(id) {
     const found = new Map();
     function put(other, label, kind) {
@@ -161,7 +187,7 @@
         if(activating)return;
         activating=true;
         group.classList.add('sky-selected');
-        const go=()=>{graphFocus=page.id;constellationPage=0;renderConnections()};
+        const go=()=>followStar(page.id);
         const noMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if(noMotion)go();else setTimeout(go,170);
       };
@@ -191,13 +217,18 @@
       if(!query){matchesBox.hidden=true;return;}
       const found=database.pages.filter(p=>(p.title+' '+(p.summary||'')).toLowerCase().includes(query)).slice(0,8);
       if(!found.length) matchesBox.append(el('p','','No matching entries'));
-      for(const p of found)matchesBox.append(makeButton(p.title,'sky-search-result',()=>{graphFocus=p.id;constellationPage=0;renderConnections()}));
+      for(const p of found)matchesBox.append(makeButton(p.title,'sky-search-result',()=>followStar(p.id)));
       matchesBox.hidden=false;
     });
     searchWrap.append(search,matchesBox);
     const pick=el('select','focus-select sky-pick');pick.setAttribute('aria-label','Choose a focused article');articleOptions(pick);pick.value=graphFocus;
-    pick.addEventListener('change',()=>{graphFocus=pick.value;constellationPage=0;renderConnections()});
-    toolbar.append(searchWrap,pick,makeButton('✧ Edit relationships','btn outline sky-edit-btn',()=>openConnectionEditor()));
+    pick.addEventListener('change',()=>followStar(pick.value));
+    const latest = starHistory[starHistory.length-1];
+    const back = makeButton(latest ? '← Back to ' + (labelOf(latest.id).length > 24 ? labelOf(latest.id).slice(0,23) + '…' : labelOf(latest.id)) : '← Back to previous star', 'sky-control', backToStar);
+    back.disabled = !latest;
+    back.setAttribute('aria-label',latest ? 'Back to previous star: ' + labelOf(latest.id) : 'No previous star to return to');
+    if(latest) back.title = 'Return to ' + labelOf(latest.id);
+    toolbar.append(back,searchWrap,pick,makeButton('✧ Edit relationships','btn outline sky-edit-btn',()=>openConnectionEditor()));
     main.append(toolbar);
 
     const layout=el('div','sky-layout');
@@ -223,7 +254,7 @@
     const list=el('div','sky-card-grid');
     if(!relatives.length)list.append(el('p','sky-empty','No links yet. Add a relationship to connect this story to the campaign.'));
     for(const rel of relatives){const p=article(rel.id);if(!p)continue;
-      const b=makeButton('','sky-story-card',()=>{graphFocus=rel.id;constellationPage=0;renderConnections()});
+      const b=makeButton('','sky-story-card',()=>followStar(rel.id));
       b.append(el('span','sky-story-icon',iconFor(p)));
       const body=el('span','sky-story-text');body.append(el('strong','',p.title),el('small','',rel.label));b.append(body);list.append(b);
     }
