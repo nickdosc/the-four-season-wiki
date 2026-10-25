@@ -67,218 +67,177 @@
     return stars;
   }
 
-  function buildConstellationPositions(items) {
-    const centerX = 390, centerY = 330;
-    const count = Math.max(1, items.length);
-    const positions = [];
-    const rings = [180, 255, 315];
-    const caps = count <= 4 ? [count, 0, 0] : count <= 7 ? [4, count - 4, 0] : [4, 3, count - 7];
-    let placed = 0;
-    rings.forEach((radius, ringIndex) => {
-      const cap = caps[ringIndex];
-      if(!cap) return;
-      const startAngle = -Math.PI / 2 + (ringIndex === 1 ? Math.PI / 8 : ringIndex === 2 ? Math.PI / 14 : 0);
-      for(let i = 0; i < cap; i++) {
-        const angle = startAngle + (Math.PI * 2 * i / cap);
-        positions.push({
-          x: centerX + Math.cos(angle) * radius,
-          y: centerY + Math.sin(angle) * radius,
-          angle,
-          radius,
-          item: items[placed]
-        });
-        placed++;
+  // Fixed landscape constellation layout. Each nameplate stays wholly inside the canvas.
+  // No force simulation, hover movement, or large moving backgrounds: stable hit areas.
+  const STAR_POINTS = [
+    [205,170], [505,125], [875,145], [1055,283],
+    [925,465], [575,505], [245,438]
+  ];
+  const SVG_W = 1260, SVG_H = 630, CX = 630, CY = 304;
+  function shortLines(value) {
+    const words = String(value || '').trim().split(/\s+/);
+    const lines = [''];
+    for (const word of words) {
+      const line = lines.length - 1;
+      if ((lines[line] + ' ' + word).trim().length <= 22 || !lines[line]) {
+        lines[line] = (lines[line] + ' ' + word).trim();
+      } else if (lines.length < 2) {
+        lines.push(word);
+      } else {
+        lines[1] += ' ' + word;
       }
-    });
-    return {centerX, centerY, rings, positions};
-  }
-
-  function constellationSVG(items, focusId) {
-    const ns = 'http://www.w3.org/2000/svg';
-    const svg = document.createElementNS(ns, 'svg');
-    svg.setAttribute('viewBox', '0 0 780 660');
-    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-    svg.setAttribute('class', 'const-svg');
-    svg.setAttribute('role', 'group');
-    svg.setAttribute('aria-label', 'Interactive constellation of related wiki entries');
-    const s = (tag, attrs, parent = svg) => {
-      const x = document.createElementNS(ns, tag);
-      for(const [k, v] of Object.entries(attrs || {})) x.setAttribute(k, String(v));
-      parent.append(x);
-      return x;
-    };
-    const defs = s('defs');
-    const lineGrad = s('linearGradient', {id: 'constLineGradient', x1:'0', y1:'0', x2:'1', y2:'1'}, defs);
-    s('stop', {offset:'0%', 'stop-color':'#ead096'}, lineGrad);
-    s('stop', {offset:'55%', 'stop-color':'#c6ddff'}, lineGrad);
-    s('stop', {offset:'100%', 'stop-color':'#cdbaf5'}, lineGrad);
-
-    for(const star of seededStars(focusId + ':' + items.map(x => x.id).join(','))) {
-      s('circle', {cx: star.x, cy: star.y, r: star.r, fill: '#ffffff', opacity: star.r < 1.2 ? '.42' : '.82'});
     }
-
-    const {centerX, centerY, rings, positions} = buildConstellationPositions(items);
-    rings.forEach((ring, idx) => {
-      if(idx === 0 || positions.length > idx * 2) s('circle', {cx:centerX, cy:centerY, r:ring, class:'const-orbit'});
-    });
-
-    positions.forEach((pos, idx) => {
-      s('line', {x1:centerX, y1:centerY, x2:pos.x, y2:pos.y, class:'const-link strong', stroke:'url(#constLineGradient)'});
-      const next = positions[(idx + 1) % positions.length];
-      if(next && positions.length > 2) s('line', {x1:pos.x, y1:pos.y, x2:next.x, y2:next.y, class:'const-link'});
-    });
-
-    const core = s('g', {'aria-hidden':'true'});
-    s('circle', {cx:centerX, cy:centerY, r:46, class:'const-core-star'}, core);
-    s('circle', {cx:centerX, cy:centerY, r:24, class:'const-core-disc'}, core);
-    const moon = s('text', {x:centerX, y:centerY + 8, 'text-anchor':'middle', class:'const-core-glyph'}, core);
-    moon.textContent = '✦';
-
-    positions.forEach((pos, index) => {
-      const rel = pos.item;
-      const p = article(rel.id);
-      if(!p) return;
-      const x = pos.x, y = pos.y;
-      const group = s('g', {class: `const-star ${starClass(index)} entering`, role:'button', tabindex:'0', 'aria-label':'Follow ' + p.title});
-      s('circle', {cx:x, cy:y, r:42, class:'const-halo'}, group);
-      s('circle', {cx:x, cy:y, r:30, class:'const-core'}, group);
-      const glyph = s('text', {x, y:y+9, 'text-anchor':'middle', class:'const-glyph'}, group);
-      glyph.textContent = iconFor(p);
-      const labelAnchor = Math.cos(pos.angle) >= 0 ? 'start' : 'end';
-      const labelX = x + (labelAnchor === 'start' ? 54 : -54);
-      const labelY = y + 8;
-      const label = s('text', {x:labelX, y:labelY, 'text-anchor':labelAnchor, class:'const-label'}, group);
-      label.textContent = p.title.length > 26 ? p.title.slice(0, 25) + '…' : p.title;
-      const tip = s('title', {}, group);
-      tip.textContent = p.title + ' — ' + rel.label;
-      const navigate = () => {
-        group.classList.add('zooming');
-        setTimeout(() => {
-          graphFocus = rel.id;
-          constellationPage = 0;
-          renderConnections();
-        }, 170);
+    if(lines[1] && lines[1].length > 24) lines[1] = lines[1].slice(0, 23).trimEnd() + '…';
+    if(lines[0].length > 24) lines[0] = lines[0].slice(0, 23).trimEnd() + '…';
+    return lines;
+  }
+  function constellationSVG(items, focus) {
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns,'svg');
+    svg.setAttribute('viewBox', `0 0 ${SVG_W} ${SVG_H}`);
+    svg.setAttribute('preserveAspectRatio','xMidYMid meet');
+    svg.setAttribute('class','sky-chart');
+    svg.setAttribute('role','group');
+    svg.setAttribute('aria-label',`Constellation centered on ${focus.title}. Select any connected star to explore it.`);
+    const make = (tag, attrs={}, parent=svg) => {
+      const n = document.createElementNS(ns,tag);
+      for(const [k,v] of Object.entries(attrs)) n.setAttribute(k,String(v));
+      parent.append(n);return n;
+    };
+    const defs = make('defs');
+    const grad = make('linearGradient',{id:'sky-thread-gradient',x1:'0%',y1:'0%',x2:'100%',y2:'100%'},defs);
+    make('stop',{offset:'0%','stop-color':'#e3c99a'},grad);
+    make('stop',{offset:'55%','stop-color':'#98cdec'},grad);
+    make('stop',{offset:'100%','stop-color':'#bca5e0'},grad);
+    for(const [i,star] of seededStars(focus.id + ':' + items.map(x=>x.id).join(',')).entries()){
+      const point=make('circle',{cx:star.x*1.57+14,cy:star.y*.95+18,r:star.r*.7,fill:i%4?'#d3e2f1':'#f4d7a1',opacity:Math.min(.62,.19+star.r*.13)});
+      if(i%7===0) { point.setAttribute('class','sky-twinkle'); point.style.animationDelay=`-${(i%5)*1.4}s`; }
+    }
+    // Decorative guide rings do not obscure any article node or label.
+    for(const r of [155,278,410]) make('circle',{cx:CX,cy:CY,r,class:'sky-guide'});
+    const positions=items.map((item,i)=>({item,x:STAR_POINTS[i][0],y:STAR_POINTS[i][1]}));
+    for(const [i,pos] of positions.entries()) {
+      make('line',{x1:CX,y1:CY,x2:pos.x,y2:pos.y,class:'sky-ray '+(pos.item.kind==='explicit'?'sky-explicit':'sky-reference')});
+      if(i>0 && i%2===0) make('line',{x1:positions[i-1].x,y1:positions[i-1].y,x2:pos.x,y2:pos.y,class:'sky-secondary'});
+    }
+    // Four tiny wandering lights trace established links. These animate transform
+    // and opacity only; no full-canvas paint or continuously moving background.
+    for(const [i,pos] of positions.entries()) {
+      if(i % 2 !== 0) continue;
+      const glint=make('circle',{cx:CX,cy:CY,r:3,class:'sky-thread-glint','aria-hidden':'true'});
+      glint.style.setProperty('--drift-x',`${pos.x-CX}px`);
+      glint.style.setProperty('--drift-y',`${pos.y-CY}px`);
+      glint.style.setProperty('--glint-delay',`${-i*1.35}s`);
+      glint.style.setProperty('--glint-duration',`${8+i%3}s`);
+    }
+    // A small fixed focal star. All connected nodes orbit outside its radius.
+    const hub=make('g',{'aria-label':`Current focus: ${focus.title}`});
+    make('circle',{cx:CX,cy:CY,r:62,class:'sky-focus-ring'},hub);
+    make('circle',{cx:CX,cy:CY,r:39,class:'sky-focus-core'},hub);
+    const focusIcon=make('text',{x:CX,y:CY+10,'text-anchor':'middle',class:'sky-focus-icon'},hub);
+    focusIcon.textContent=iconFor(focus);
+    make('rect',{x:CX-113,y:CY+54,width:226,height:40,rx:12,class:'sky-focus-nameplate'},hub);
+    const focusName=make('text',{x:CX,y:CY+80,'text-anchor':'middle',class:'sky-focus-name'},hub);
+    focusName.textContent=focus.title.length>24?focus.title.slice(0,23)+'…':focus.title;
+    for(const [i,pos] of positions.entries()) {
+      const page=article(pos.item.id);
+      if(!page)continue;
+      const lines=shortLines(page.title);
+      const group=make('g',{class:'sky-node sky-'+(i%3===0?'gold':i%3===1?'ice':'violet'),role:'button',tabindex:'0','aria-label':'Explore '+page.title});
+      // The invisible click target never changes size when hovered or animated.
+      make('circle',{cx:pos.x,cy:pos.y,r:47,class:'sky-hit'},group);
+      make('circle',{cx:pos.x,cy:pos.y,r:36,class:'sky-node-halo'},group);
+      make('circle',{cx:pos.x,cy:pos.y,r:27,class:'sky-node-core'},group);
+      const icon=make('text',{x:pos.x,y:pos.y+8,'text-anchor':'middle',class:'sky-node-icon'},group);icon.textContent=iconFor(page);
+      const labelY=pos.y+51;
+      make('rect',{x:pos.x-111,y:labelY,width:222,height:lines.length>1?60:41,rx:11,class:'sky-nameplate'},group);
+      for(const [j,text] of lines.entries()) {
+        const t=make('text',{x:pos.x,y:labelY+(lines.length>1?24:27)+j*23,'text-anchor':'middle',class:'sky-node-label'},group);
+        t.textContent=text;
+      }
+      make('title',{},group).textContent=page.title+' — '+pos.item.label;
+      let activating=false;
+      const navigate=()=>{
+        if(activating)return;
+        activating=true;
+        group.classList.add('sky-selected');
+        const go=()=>{graphFocus=page.id;constellationPage=0;renderConnections()};
+        const noMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(noMotion)go();else setTimeout(go,170);
       };
-      group.addEventListener('click', navigate);
-      group.addEventListener('keydown', ev => {
-        if(ev.key === 'Enter' || ev.key === ' ') {
-          ev.preventDefault();
-          navigate();
-        }
+      group.addEventListener('click',navigate);
+      group.addEventListener('keydown',ev=>{
+        if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();navigate();}
       });
-    });
-
+    }
     return svg;
   }
 
-  renderConnections = function () {
-    const main = document.getElementById('main');
-    if(!main) return;
-    const focus = article(graphFocus) || article('the-four-seasons') || database.pages[0];
-    if(!focus) return;
-    graphFocus = focus.id;
-    const relatives = relatedTo(focus.id);
-    const pages = Math.max(1, Math.ceil(relatives.length / THREADS_PER_PAGE));
-    constellationPage = Math.min(Math.max(0, constellationPage), pages - 1);
-    const visible = relatives.slice(constellationPage * THREADS_PER_PAGE, (constellationPage + 1) * THREADS_PER_PAGE);
-
-    main.replaceChildren(livingHeader('THE THREADS OF FATE', 'Constellation Web', 'Follow the brighter links between people, places, mysteries and history. Tap a star to drift toward the next thread of the story.'));
-
-    const bar = el('div', 'const-toolbar');
-    const pick = el('select', 'focus-select const-focus-select');
-    pick.setAttribute('aria-label', 'Choose a focused article');
-    articleOptions(pick);
-    pick.value = graphFocus;
-    pick.addEventListener('change', () => { graphFocus = pick.value; constellationPage = 0; renderConnections(); });
-
-    const findWrap = el('div', 'const-lookup');
-    const search = el('input', 'const-search');
-    search.type = 'search';
-    search.placeholder = 'Find any character, place or story…';
-    search.setAttribute('aria-label', 'Search wiki entries to focus');
-    const results = el('div', 'const-find-results');
-    results.hidden = true;
-    search.addEventListener('input', () => {
-      const query = search.value.trim().toLowerCase();
-      results.replaceChildren();
-      if(!query) { results.hidden = true; return; }
-      const matches = database.pages.filter(p => (p.title + ' ' + (p.summary || '')).toLowerCase().includes(query)).slice(0, 7);
-      if(!matches.length) results.append(el('p', '', 'No matching entries'));
-      for(const p of matches) results.append(makeButton(p.title, 'const-suggestion', () => { graphFocus = p.id; constellationPage = 0; renderConnections(); }));
-      results.hidden = false;
+  renderConnections=function(){
+    const main=document.getElementById('main');if(!main)return;
+    const focus=article(graphFocus)||article('the-four-seasons')||database.pages[0];if(!focus)return;
+    graphFocus=focus.id;
+    const relatives=relatedTo(focus.id);
+    const pages=Math.max(1,Math.ceil(relatives.length/THREADS_PER_PAGE));
+    constellationPage=Math.min(Math.max(0,constellationPage),pages-1);
+    const visible=relatives.slice(constellationPage*THREADS_PER_PAGE,(constellationPage+1)*THREADS_PER_PAGE);
+    main.replaceChildren(livingHeader('THE THREADS OF FATE','The Constellation Atlas','A living chart of shared stories. Follow a star to reveal its connections, or search for anyone in the campaign.'));
+    const toolbar=el('div','sky-toolbar');
+    const searchWrap=el('div','sky-search-wrap');
+    const search=el('input','sky-search');search.type='search';search.placeholder='Find a character, location or chapter…';search.setAttribute('aria-label','Search wiki entries to focus');
+    const matchesBox=el('div','sky-search-results');matchesBox.hidden=true;
+    search.addEventListener('input',()=>{
+      const query=search.value.trim().toLowerCase();matchesBox.replaceChildren();
+      if(!query){matchesBox.hidden=true;return;}
+      const found=database.pages.filter(p=>(p.title+' '+(p.summary||'')).toLowerCase().includes(query)).slice(0,8);
+      if(!found.length) matchesBox.append(el('p','','No matching entries'));
+      for(const p of found)matchesBox.append(makeButton(p.title,'sky-search-result',()=>{graphFocus=p.id;constellationPage=0;renderConnections()}));
+      matchesBox.hidden=false;
     });
-    findWrap.append(search, results);
-    bar.append(findWrap, pick, makeButton('✧ Manage relationships', 'btn outline mini', () => openConnectionEditor()));
-    main.append(bar);
+    searchWrap.append(search,matchesBox);
+    const pick=el('select','focus-select sky-pick');pick.setAttribute('aria-label','Choose a focused article');articleOptions(pick);pick.value=graphFocus;
+    pick.addEventListener('change',()=>{graphFocus=pick.value;constellationPage=0;renderConnections()});
+    toolbar.append(searchWrap,pick,makeButton('✧ Edit relationships','btn outline sky-edit-btn',()=>openConnectionEditor()));
+    main.append(toolbar);
 
-    const content = el('div', 'const-layout');
-    const stage = el('section', 'const-stage' + (constellationMotion ? '' : ' motion-paused'));
-    stage.setAttribute('aria-label', 'Constellation navigation');
-    stage.setAttribute('aria-describedby', 'constellation-help');
-    stage.tabIndex = 0;
-    const heading = el('div', 'const-stage-heading');
-    heading.append(el('span', 'eyebrow', 'THE LIVING SKY'), el('strong', '', focus.title), el('small', '', `${relatives.length} known connections · ${constellationPage + 1} / ${pages}`));
-    stage.append(heading, constellationSVG(visible, focus.id));
-    const controls = el('div', 'const-controls');
-    const prev = makeButton('← Earlier stars', 'const-nav-btn', () => { constellationPage = Math.max(0, constellationPage - 1); renderConnections(); });
-    prev.disabled = constellationPage === 0;
-    const next = makeButton('More stars →', 'const-nav-btn', () => { constellationPage = Math.min(pages - 1, constellationPage + 1); renderConnections(); });
-    next.disabled = constellationPage === pages - 1;
-    const motion = makeButton(constellationMotion ? 'Ⅱ Pause motion' : '▶ Resume motion', 'const-nav-btn', () => { constellationMotion = !constellationMotion; renderConnections(); });
-    controls.append(prev, motion, next);
-    stage.append(controls);
-    const hint = el('p', 'const-hint', 'Tap a glowing star to follow it · Swipe left or right for more links on mobile · Use the list for quick access');
-    hint.id = 'constellation-help';
-    stage.append(hint);
-    const legend = el('div', 'const-legend');
-    const l1 = el('span'); l1.append(el('i', 'gold'), document.createTextNode('explicit links'));
-    const l2 = el('span'); l2.append(el('i', 'ice'), document.createTextNode('mentions & references'));
-    const l3 = el('span'); l3.append(el('i', 'violet'), document.createTextNode('other connected stories'));
-    legend.append(l1, l2, l3);
-    stage.append(legend);
-
-    let startX = null;
-    stage.addEventListener('touchstart', e => { startX = e.touches[0]?.clientX ?? null; }, {passive:true});
-    stage.addEventListener('touchend', e => {
-      if(startX === null) return;
-      const delta = (e.changedTouches[0]?.clientX ?? startX) - startX;
-      startX = null;
-      if(Math.abs(delta) < 85) return;
-      if(delta < 0 && constellationPage < pages - 1) { constellationPage++; renderConnections(); }
-      else if(delta > 0 && constellationPage > 0) { constellationPage--; renderConnections(); }
-    }, {passive:true});
-    stage.addEventListener('keydown', e => {
-      if(e.target.closest('.const-star')) return;
-      if(e.key === 'ArrowRight' && constellationPage < pages - 1) { constellationPage++; renderConnections(); }
-      if(e.key === 'ArrowLeft' && constellationPage > 0) { constellationPage--; renderConnections(); }
-    });
-
-    const detail = el('aside', 'const-detail');
-    detail.append(el('div', 'eyebrow', 'CURRENT STAR'), el('h2', '', focus.title), el('p', 'const-summary', focus.summary || 'This article is part of the campaign archive.'));
-    const links = el('div', 'const-actions');
-    const open = el('a', 'btn primary mini', 'Read full entry ↗');
-    open.href = qPage(focus.id);
-    links.append(open, makeButton('＋ Add link', 'btn outline mini', () => openConnectionEditor()));
-    detail.append(links);
-    detail.append(el('h3', '', 'Linked stories'));
-    const list = el('div', 'const-relations');
-    if(!relatives.length) list.append(el('p', 'const-no-links', 'No known relationships yet. Use Add link to connect this entry to the story.'));
-    for(const relation of relatives) {
-      const p = article(relation.id);
-      const b = makeButton('', 'const-relation', () => {
-        graphFocus = relation.id;
-        constellationPage = 0;
-        renderConnections();
-      });
-      b.append(el('span', 'const-relation-glyph', iconFor(p)), el('span', 'const-relation-body'));
-      b.lastChild.append(el('strong', '', p.title), el('small', '', relation.label));
-      list.append(b);
+    const layout=el('div','sky-layout');
+    const scene=el('section','sky-scene');scene.setAttribute('aria-label','Interactive landscape constellation map');
+    const head=el('div','sky-scene-heading');
+    head.append(el('span','eyebrow','THE LIVING SKY'),el('strong','',focus.title),el('small','',`${relatives.length} connections · page ${constellationPage+1} of ${pages}`));scene.append(head);
+    scene.append(el('p','sky-mobile-hint','Swipe sideways to explore the wide constellation, or use the linked-story list above.'));
+    const viewport=el('div','sky-viewport');viewport.tabIndex=0;viewport.setAttribute('aria-label','Scrollable constellation. Move sideways on smaller screens to explore stars.');
+    viewport.append(constellationSVG(visible,focus));scene.append(viewport);
+    const controls=el('div','sky-controls');
+    const previous=makeButton('← Previous stars','sky-control',()=>{constellationPage=Math.max(0,constellationPage-1);renderConnections()});previous.disabled=constellationPage===0;
+    const next=makeButton('Next stars →','sky-control',()=>{constellationPage=Math.min(pages-1,constellationPage+1);renderConnections()});next.disabled=constellationPage===pages-1;
+    const motion=makeButton(constellationMotion?'✧ Pause twinkle':'✦ Resume twinkle','sky-control',()=>{constellationMotion=!constellationMotion;renderConnections()});
+    controls.append(previous,el('span','sky-control-status',`${visible.length} of ${relatives.length} connections`),motion,next);scene.append(controls);
+    const hint=el('p','sky-hint','Select a star to explore its story. On phones, swipe the chart sideways or use the relationship cards below.');scene.append(hint);
+    if(!constellationMotion)scene.classList.add('sky-static');
+    const details=el('section','sky-story');details.setAttribute('aria-label','Selected story and relationships');
+    const summary=el('div','sky-story-summary');
+    summary.append(el('div','eyebrow','IN FOCUS'),el('h2','',focus.title),el('p','',focus.summary||'This article is part of the campaign archive.'));
+    const actions=el('div','sky-actions');const read=el('a','btn primary','Read full article ↗');read.href=qPage(focus.id);
+    actions.append(read,makeButton('＋ Add connection','btn outline',()=>openConnectionEditor()));summary.append(actions);details.append(summary);
+    const linked=el('div','sky-story-links');linked.append(el('h3','','Follow another story · '+relatives.length));
+    const list=el('div','sky-card-grid');
+    if(!relatives.length)list.append(el('p','sky-empty','No links yet. Add a relationship to connect this story to the campaign.'));
+    for(const rel of relatives){const p=article(rel.id);if(!p)continue;
+      const b=makeButton('','sky-story-card',()=>{graphFocus=rel.id;constellationPage=0;renderConnections()});
+      b.append(el('span','sky-story-icon',iconFor(p)));
+      const body=el('span','sky-story-text');body.append(el('strong','',p.title),el('small','',rel.label));b.append(body);list.append(b);
     }
-    detail.append(list);
-    content.append(stage, detail);
-    main.append(content);
-    rightSidebar(null);
-    updateNav('connections');
+    linked.append(list);details.append(linked);
+    layout.append(scene,details);main.append(layout);
+    // Keep keyboard, touch, and scrolling predictable without trapping focus.
+    viewport.addEventListener('keydown',e=>{
+      if(e.target!==viewport)return;
+      if(e.key==='ArrowLeft')viewport.scrollBy({left:-180,behavior:'smooth'});
+      if(e.key==='ArrowRight')viewport.scrollBy({left:180,behavior:'smooth'});
+    });
+    const mobile=window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
+    if(mobile)viewport.scrollLeft=Math.max(0,(viewport.scrollWidth-viewport.clientWidth)/2);
+    rightSidebar(null);updateNav('connections');
   };
 
   // Extend the existing, editable atlas without replacing original locations or routes.

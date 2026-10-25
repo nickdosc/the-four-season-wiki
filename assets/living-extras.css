@@ -10,43 +10,102 @@
 .quest-card .quest-giver{color:#c8cbd1}.quest-card .quest-reward{color:#f4deb2}.quest-card-image{object-fit:contain;background:#0b1624}
 .quest-card .article-prose,.quest-card .article-prose p,.quest-card .article-prose li{line-height:1.8}.quest-card .article-prose{font-size:15px}
 
-/* Constellation connections view */
-.const-toolbar{display:flex;align-items:center;gap:14px 14px;flex-wrap:wrap;margin:0 0 24px;position:relative;z-index:2}
-.const-lookup{position:relative;flex:1 1 320px;min-width:0}.const-search{width:100%;display:block;border:1px solid #8f7a56;background:#1a2a3e;color:#fff4dd;border-radius:11px;padding:15px 17px;font-size:15px;min-height:50px;box-shadow:0 6px 18px #04101f2b inset}.const-search::placeholder{color:#c2cfdb}
-.const-find-results{position:absolute;z-index:20;top:calc(100% + 6px);left:0;right:0;max-height:300px;overflow:auto;padding:7px;background:#172638;border:1px solid #b09b69;border-radius:10px;box-shadow:0 16px 36px #000b}.const-find-results[hidden]{display:none}
-.const-find-results p{color:#e8d7b7;padding:8px 12px;margin:0}.const-suggestion{color:#eee6d4;display:block;text-align:left;width:100%;padding:11px 12px;background:none;border:0;border-radius:6px}.const-suggestion:hover,.const-suggestion:focus-visible{background:#34465b}
-.const-focus-select{max-width:min(100%,270px);flex:0 1 240px;min-height:50px;font-size:15px}
-.const-layout{display:grid;grid-template-columns:minmax(0,1.82fr) minmax(340px,.76fr);gap:24px;align-items:stretch;min-width:0}
-.const-stage{position:relative;min-width:0;overflow:hidden;border:1px solid #a58e5c85;border-radius:18px;min-height:840px;background:radial-gradient(circle at 50% 38%,#21385e 0,#111b31 38%,#0b1324 64%,#07101d 100%);box-shadow:inset 0 0 90px #030711ab,0 18px 44px #0005;isolation:isolate;outline-offset:2px}
-.const-stage:before,.const-stage:after{content:"";position:absolute;inset:-30%;pointer-events:none;z-index:-1}
-.const-stage:before{background-image:radial-gradient(circle,#fff3d0 1px,transparent 1.9px),radial-gradient(circle,#cfe5ff 1px,transparent 1.8px),radial-gradient(circle,#d8c4ff 1px,transparent 1.7px);background-size:88px 98px,142px 116px,198px 156px;opacity:.42;animation:const-sky 110s linear infinite}
-.const-stage:after{background:radial-gradient(circle at 45% 34%,#fff6d108,transparent 22%),radial-gradient(circle at 58% 56%,#9eb8e71c,transparent 36%),radial-gradient(circle at 31% 64%,#bfa0f01c,transparent 30%);animation:const-breathe 12s ease-in-out infinite alternate}
-.const-stage-heading{position:absolute;top:20px;left:22px;right:22px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px 18px;flex-wrap:wrap;z-index:2;pointer-events:none}
-.const-stage-heading .eyebrow{font-size:11px;letter-spacing:2.6px;color:#efce94}.const-stage-heading strong{font:clamp(24px,2.1vw,32px) var(--display);color:#fff2db}.const-stage-heading small{font-size:13px;color:#d8e4ef}
-.const-svg{display:block;position:relative;width:100%;height:min(820px,75vw);min-height:680px;overflow:visible;user-select:none}
-.const-orbit{fill:none;stroke:#d9ccb216;stroke-width:1.1;stroke-dasharray:6 10}
-.const-link{stroke:rgba(212,229,255,.42);stroke-width:1.9;filter:drop-shadow(0 0 8px rgba(187,220,255,.20));animation:const-line-glow 4.6s ease-in-out infinite alternate}
-.const-link.strong{stroke:rgba(241,212,158,.52);stroke-width:2.5}
-.const-star{cursor:pointer;outline:none;transition:filter .22s,opacity .22s}.const-star.entering{animation:const-pop .45s ease-out}.const-star.zooming{animation:const-focus .18s ease-in forwards}
-/* Important: no hover scale, to avoid edge jitter / rapid in-out flicker. */
-.const-star:hover .const-core,.const-star:focus-visible .const-core{stroke-width:3.3;filter:drop-shadow(0 0 15px rgba(255,236,192,.58))}.const-star:hover .const-halo,.const-star:focus-visible .const-halo{opacity:.95;stroke:#fff3c5}
-.const-halo{fill:#c6cefa14;stroke:#ffffff32;stroke-width:1.2;transform-box:fill-box;transform-origin:center;animation:const-pulse 3.5s ease-in-out infinite alternate}
-.const-core{fill:#223048;stroke:#f8c979;stroke-width:2.8;filter:drop-shadow(0 0 11px #e6ba6f90)}
-.const-star.ice .const-core{stroke:#b0d8eb;filter:drop-shadow(0 0 12px #77dcf3a0)}
-.const-star.violet .const-core{stroke:#cab6ef;filter:drop-shadow(0 0 12px #b798f0a0)}
-.const-glyph{font-size:25px;fill:#f9e3aa;pointer-events:none}.const-star.ice .const-glyph{fill:#d6f6ff}.const-star.violet .const-glyph{fill:#f1e3ff}
-.const-label{font:25px Georgia,serif;fill:#fbf4ea;stroke:#0b1320;stroke-width:4.4;paint-order:stroke;pointer-events:none}
-.const-core-star{fill:#d2bdf522;stroke:#e2c99554;stroke-width:2;animation:const-pulse 6s ease-in-out infinite alternate;transform-origin:center;transform-box:fill-box}.const-core-disc{fill:#18253d;stroke:#dac492;stroke-width:2}.const-core-glyph{fill:#f2e6bd;font-size:28px}
-.const-controls{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 20px 14px}.const-nav-btn{border:1px solid #9c8b6969;background:#1b2d43;color:#ead7ae;padding:11px 16px;border-radius:10px;font:700 13px var(--ui);transition:border-color .2s,background-color .2s,box-shadow .2s}.const-nav-btn:hover:not(:disabled),.const-nav-btn:focus-visible:not(:disabled){border-color:#efd39a;background:#2b4260;box-shadow:0 0 0 2px #f0d7991d inset}.const-nav-btn:disabled{opacity:.35;cursor:not-allowed}
-.const-hint{text-align:center;color:#aec7d8;font-size:13px;margin:4px 16px 14px}.const-stage.motion-paused *,.const-stage.motion-paused:before,.const-stage.motion-paused:after{animation-play-state:paused!important}
-.const-detail{background:linear-gradient(145deg,#1a2d43,#111d30);border:1px solid #a58a6173;border-radius:16px;padding:28px 24px;min-width:0;display:flex;flex-direction:column;gap:12px;max-height:880px;animation:const-panel-in .34s ease-out;box-shadow:0 18px 34px #04101e2b}
-.const-detail h2{font:clamp(31px,2.8vw,40px)/1.08 var(--display);color:#f6e4b9;margin:0;overflow-wrap:anywhere}.const-detail h3{font:24px var(--display);color:#f4ddad;margin:18px 0 4px}
-.const-summary{font-size:15px;line-height:1.74;color:#d9e2ea;margin:0 0 5px}.const-actions{display:flex;flex-wrap:wrap;gap:8px}.const-actions>*{flex:1 1 120px;text-align:center;justify-content:center;min-height:46px;font-size:14px}
-.const-relations{display:flex;flex-direction:column;gap:10px;overflow-y:auto;overscroll-behavior:contain;min-height:0;padding:1px 4px 4px 1px}.const-no-links{font-size:13px;color:#c7d1dc}
-.const-relation{display:flex;gap:12px;align-items:center;text-align:left;width:100%;border:1px solid #728aa05a;background:#18293c;padding:13px;border-radius:11px;color:#f0e6d3;transition:transform .16s,background .18s,border-color .18s}.const-relation:hover,.const-relation:focus-visible{border-color:#dcc18e;background:#263d51;transform:translateY(-1px)}
-.const-relation-glyph{display:grid;place-items:center;flex:0 0 44px;height:44px;border:1px solid #a59576;border-radius:50%;background:#253950;color:#e4c896;font:24px Georgia,serif}.const-relation-body{display:flex;flex-direction:column;gap:3px;min-width:0}.const-relation-body strong{font:19px var(--display);line-height:1.25;overflow-wrap:anywhere}.const-relation-body small{color:#c9d1db;font:12px/1.45 var(--ui);overflow-wrap:anywhere}
-.const-legend{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;color:#c9d9e7;font-size:12px;padding:0 14px 18px}.const-legend span{display:inline-flex;align-items:center;gap:6px}.const-legend i{display:inline-block;width:12px;height:12px;border-radius:50%}.const-legend .gold{background:#e8c684}.const-legend .ice{background:#a8daf0}.const-legend .violet{background:#c6afe7}
-@keyframes const-pulse{to{opacity:.72;transform:scale(1.1)}}@keyframes const-sky{to{transform:translate(10%,5%)}}@keyframes const-breathe{to{opacity:.46}}@keyframes const-pop{0%{opacity:.28;transform:scale(.88)}100%{opacity:1;transform:scale(1)}}@keyframes const-panel-in{0%{opacity:.35;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}@keyframes const-line-glow{to{opacity:.95}}@keyframes const-focus{to{opacity:.55;filter:brightness(1.18)}}
+
+/* V2.5: full-width landscape atlas — no animated background layers. */
+body:has(.sky-layout) .site-grid{grid-template-columns:235px minmax(0,1fr);max-width:1880px;gap:24px}
+body:has(.sky-layout) .rightbar{display:none}
+.sky-toolbar{display:flex;gap:11px;align-items:center;flex-wrap:wrap;margin-bottom:20px;position:relative;z-index:5}
+.sky-search-wrap{position:relative;flex:1 1 290px;min-width:0}
+.sky-search{width:100%;min-height:50px;padding:13px 16px;border:1px solid #7485a1;border-radius:9px;background:#17273d;color:#f4e8d0;font:15px var(--ui)}
+.sky-search::placeholder{color:#bdcad9}
+.sky-search:focus-visible,.sky-pick:focus-visible{outline:2px solid #c9dcf5;outline-offset:2px}
+.sky-search-results{position:absolute;top:calc(100% + 5px);left:0;right:0;background:#16283e;border:1px solid #9eafd0;border-radius:10px;padding:8px;max-height:280px;overflow-y:auto;box-shadow:0 18px 40px #000a;z-index:12}
+.sky-search-results[hidden]{display:none}
+.sky-search-results p{margin:8px;color:#e0e6ed}
+.sky-search-result{display:block;width:100%;text-align:left;padding:12px 14px;background:transparent;border:0;border-radius:6px;color:#f3e7d3;font:15px var(--ui);cursor:pointer}
+.sky-search-result:hover,.sky-search-result:focus-visible{background:#334761}
+.sky-pick{flex:0 1 260px;max-width:100%;min-height:50px;font-size:14px}
+.sky-edit-btn{min-height:50px;white-space:nowrap}
+.sky-layout{display:flex;flex-direction:column;gap:17px;min-width:0}
+.sky-scene{border-radius:18px;overflow:hidden;border:1px solid #7188a66d;background:#0b1527;box-shadow:0 18px 42px #0004,inset 0 0 40px #03091444}
+.sky-scene-heading{display:flex;justify-content:space-between;align-items:baseline;gap:8px 16px;flex-wrap:wrap;padding:18px 24px 12px;background:#101d32}
+.sky-scene-heading .eyebrow{font-size:10px;letter-spacing:2.6px;color:#dfbb79}
+.sky-scene-heading strong{font:normal clamp(23px,2vw,32px)/1.15 var(--display);color:#f5e8ca}
+.sky-scene-heading small{font:12px var(--ui);color:#c0d2e7}
+.sky-viewport{position:relative;width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;background:
+ radial-gradient(circle at 50% 51%,#27385c 0%,#172641 32%,#0e1b31 62%,#091526 100%);
+ scrollbar-color:#728cae #0c1b2f;overscroll-behavior-x:contain;scrollbar-width:thin;scroll-behavior:smooth}
+.sky-viewport:focus-visible{outline:2px solid #d2e3f6;outline-offset:-4px}
+.sky-chart{display:block;width:100%;height:auto;aspect-ratio:1260/630;min-height:0;user-select:none;animation:sky-chart-in .34s ease-out}
+.sky-guide{fill:none;stroke:#c6d8ed16;stroke-width:1.15;stroke-dasharray:3 11;pointer-events:none}
+.sky-ray{stroke-width:2.2;stroke-linecap:round;pointer-events:none;opacity:.62;stroke:#aac7de}
+.sky-ray.sky-explicit{stroke:#e3c390;opacity:.76}
+.sky-ray.sky-reference{stroke:#91bbdc}
+.sky-secondary{stroke:#b6b2d9;stroke-width:1.6;stroke-opacity:.3;pointer-events:none}
+.sky-twinkle{animation:sky-twinkle 6s ease-in-out infinite alternate;transform:none}
+.sky-focus-ring{fill:#d5c7f013;stroke:#d8bc8280;stroke-width:1.7;pointer-events:none}
+.sky-focus-core{fill:#202d48;stroke:#e4c995;stroke-width:3;pointer-events:none}
+.sky-focus-icon{font-size:30px;fill:#f2dba4;pointer-events:none}
+.sky-focus-nameplate{fill:#101e33;stroke:#a6bdd47a;stroke-width:1.4;pointer-events:none}
+.sky-focus-name{font:21px var(--display);fill:#fff1d6;pointer-events:none}
+.sky-node{cursor:pointer;outline:none}
+.sky-hit{fill:transparent;pointer-events:all}
+.sky-node-halo{fill:#c0c7e515;stroke:#d2daec50;stroke-width:1.3;pointer-events:none}
+.sky-node-core{fill:#20314b;stroke:#e4c189;stroke-width:3;pointer-events:none}
+.sky-ice .sky-node-core{stroke:#b4e0f1}.sky-violet .sky-node-core{stroke:#d6b7f1}
+.sky-node-icon{font-size:22px;fill:#f7e3ac;pointer-events:none}.sky-ice .sky-node-icon{fill:#c3e8f5}.sky-violet .sky-node-icon{fill:#e1ccfb}
+.sky-nameplate{fill:#112039;stroke:#879dbc88;stroke-width:1.4;pointer-events:none}
+.sky-node-label{font:18px Georgia,serif;fill:#f1e9da;pointer-events:none}
+/* No hover transforms: fixed hit radius prevents the previously reported edge flicker. */
+.sky-node:hover .sky-node-core,.sky-node:focus-visible .sky-node-core{fill:#3c526d;stroke-width:4.4}
+.sky-node:hover .sky-node-halo,.sky-node:focus-visible .sky-node-halo{stroke:#ffffff;stroke-width:2.2;fill:#c9dcf024}
+.sky-node:hover .sky-nameplate,.sky-node:focus-visible .sky-nameplate{stroke:#e5d099;fill:#1f344f}
+.sky-node.sky-selected .sky-node-core{fill:#d0ac75;stroke:#fff1cf}
+.sky-controls{display:flex;justify-content:space-between;align-items:center;gap:9px;flex-wrap:wrap;padding:14px 22px;background:#0f1b2c;border-top:1px solid #738bae28}
+.sky-control{cursor:pointer;border:1px solid #8095b375;color:#e6d5b9;background:#1b2e45;padding:11px 14px;min-height:43px;border-radius:8px;font:600 13px var(--ui);transition:border-color .15s,background-color .15s}
+.sky-control:hover:not(:disabled),.sky-control:focus-visible:not(:disabled){border-color:#c4d9e9;background:#29435c}
+.sky-control:disabled{opacity:.4;cursor:default}
+.sky-control-status{color:#b8c9dc;font:13px var(--ui)}
+.sky-hint{font:13px/1.5 var(--ui);padding:0 22px 15px;margin:0;color:#afc1d5;background:#0f1b2c}
+.sky-mobile-hint{display:none;padding:0 16px 12px;margin:0;color:#b9cfe1;font:12px/1.5 var(--ui);background:#101d32}
+.sky-static .sky-twinkle,.sky-static .sky-thread-glint,.sky-static .sky-node-halo,.sky-static .sky-focus-ring,.sky-static .sky-ray{animation:none!important}
+.sky-story{display:grid;grid-template-columns:minmax(280px,.87fr) minmax(0,1.5fr);gap:20px;padding:24px;border:1px solid #778aa25c;border-radius:15px;background:linear-gradient(125deg,#1a293e,#111c2d 80%);box-shadow:0 12px 33px #0003;animation:sky-card-enter .28s ease-out}
+.sky-story-summary{min-width:0;border-right:1px solid #bca77845;padding-right:20px}
+.sky-story-summary h2{font:clamp(26px,2.5vw,38px)/1.2 var(--display);color:#f3dfb9;margin:10px 0 13px;overflow-wrap:anywhere}
+.sky-story-summary p{font:15px/1.8 var(--ui);color:#d8e0e8;margin:0 0 16px}
+.sky-actions{display:flex;gap:10px;flex-wrap:wrap}.sky-actions>*{font-size:13px;min-height:42px;flex:1 1 140px;text-align:center;justify-content:center}
+.sky-story-links{min-width:0}.sky-story-links h3{font:22px var(--display);color:#efddbd;margin:0 0 14px}
+.sky-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:9px;max-height:390px;overflow-y:auto;overscroll-behavior:contain;padding:1px 5px 2px 1px;scrollbar-color:#7c93b1 #17273b;scrollbar-width:thin}
+.sky-story-card{cursor:pointer;min-width:0;display:flex;align-items:center;text-align:left;gap:12px;padding:12px;background:#1a2d43;color:#f4eada;border:1px solid #8eabc05a;border-radius:10px;transition:background-color .16s,border-color .16s}
+.sky-story-card:hover,.sky-story-card:focus-visible{border-color:#dfc896;background:#29425d}
+.sky-story-icon{flex:0 0 38px;width:38px;height:38px;border:1px solid #bea780;border-radius:50%;display:grid;place-items:center;font:19px Georgia,serif;color:#e9d5b0}
+.sky-story-text{min-width:0;display:flex;flex-direction:column;gap:4px}
+.sky-story-text strong{font:17px/1.2 var(--display);overflow-wrap:anywhere}
+.sky-story-text small{font:12px/1.3 var(--ui);color:#c9d2de;overflow-wrap:anywhere}
+.sky-empty{color:#d0dbe9}
+@keyframes sky-twinkle{from{opacity:.23}to{opacity:.85}}
+@keyframes sky-chart-in{from{opacity:.5}to{opacity:1}}
+@keyframes sky-card-enter{from{opacity:.55;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* Disable the site-wide full-page ambient animations only inside the heavy chart view. */
+body:has(.sky-layout) .aurora,body:has(.sky-layout) .starfield i,body:has(.sky-layout) .living-head:after{animation:none!important}
+@media(max-width:1150px){.sky-story{grid-template-columns:1fr}.sky-story-summary{border-right:0;border-bottom:1px solid #bca77845;padding-right:0;padding-bottom:16px}}
+@media(max-width:980px){body:has(.sky-layout) .site-grid{grid-template-columns:minmax(0,1fr);gap:18px}}
+@media(max-width:900px){
+ .sky-toolbar>*{flex:1 1 100%;max-width:none}.sky-pick{min-width:0;flex:1 1 100%}
+ .sky-layout{display:flex}.sky-story{order:-1}.sky-mobile-hint{display:block}
+ .sky-viewport{touch-action:pan-x pan-y}.sky-chart{width:1050px;min-width:1050px;height:525px}
+ .sky-scene-heading{padding:15px 16px 12px}.sky-scene-heading strong{font-size:22px}
+}
+@media(max-width:620px){
+ .sky-story{padding:18px 15px;gap:14px}.sky-card-grid{grid-template-columns:1fr 1fr;gap:8px}
+ .sky-story-card{padding:10px;gap:8px}.sky-story-icon{flex-basis:32px;width:32px;height:32px;font-size:18px}
+ .sky-story-text strong{font-size:15px}.sky-story-text small{font-size:11px}
+ .sky-scene-heading{flex-direction:column;gap:6px}
+ .sky-controls{padding:13px;display:grid;grid-template-columns:1fr 1fr}
+ .sky-control{width:100%;padding:9px 6px;font-size:12px}.sky-control-status{grid-column:span 2;grid-row:1;text-align:center}
+ .sky-hint{padding:0 14px 15px;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){.sky-chart,.sky-twinkle,.sky-story,.sky-thread-glint,.sky-node-halo,.sky-focus-ring,.sky-ray{animation:none!important}.sky-viewport{scroll-behavior:auto!important}}
 
 /* Region templates remain purely visual. Pins and routes are still bound to editable wiki articles. */
 .atlas-custom-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}.map-style-selector{display:flex;gap:8px;align-items:center;color:#e7d3ae;font-size:12px}.map-style-selector select{min-width:160px;max-width:210px}.new-map-panel{position:relative}.new-map-panel summary{cursor:pointer;border:1px solid #a7977370;border-radius:6px;padding:10px 13px;background:#182637;color:#f2d89f;font-size:12px;list-style:none}.new-map-panel summary::-webkit-details-marker{display:none}.new-map-panel[open] summary{border-color:#e0be78}.new-map-form{position:absolute;right:0;top:calc(100% + 6px);z-index:5;width:min(340px,85vw);background:#182b3e;border:1px solid #d5b477;border-radius:9px;padding:15px;box-shadow:0 20px 36px #0009;display:grid;gap:12px}.new-map-form input{background:#0f1e30;color:#f9e6cd;border:1px solid #ae966b;border-radius:6px;padding:11px;width:100%;min-width:0}.map-style-name{position:absolute;bottom:13px;right:15px;z-index:2;color:#f0dbad;font:italic 11px var(--display);text-shadow:0 1px 5px #0009;pointer-events:none}
@@ -57,6 +116,26 @@
 .atlas-surface.map-skin-shadow{background-color:#251a35;background-image:radial-gradient(ellipse at 50% 32%,#70568a81,transparent 47%),radial-gradient(ellipse at 24% 75%,#3e62866d,transparent 40%),linear-gradient(155deg,#1c1630,#10111d)}
 .region-generic-land{fill:#cfbf9473;stroke:#f3dfb43b;stroke-width:2}
 
-@media (max-width:1300px){.const-layout{grid-template-columns:1fr}.const-detail{max-height:none}}
-@media (max-width:900px){.const-toolbar>*{flex:1 1 100%;max-width:none}.const-focus-select{max-width:none;flex-basis:100%}.const-stage{min-height:auto}.const-svg{height:82vw;min-height:470px}.const-stage-heading strong{font-size:24px}.const-stage-heading small{font-size:12px}.const-label{font-size:21px}.const-actions>*{flex:1 1 100%}}
-@media (max-width:640px){.const-stage-heading{position:static;padding:16px 16px 0;justify-content:flex-start}.const-svg{min-height:400px;height:92vw}.const-controls{padding:4px 14px 12px}.const-nav-btn{width:100%;justify-content:center}.const-detail{padding:20px 16px}.const-detail h2{font-size:28px}.const-summary{font-size:14px}.const-relation-body strong{font-size:17px}.new-map-form{left:0;right:auto}}
+
+/* V2.5.1 — Lightweight celestial motion. Only a few SVG elements animate.
+   Never scale/translate interactive star groups; hit areas remain stable. */
+.sky-node-halo{animation:sky-halo-shimmer 5.6s ease-in-out infinite alternate;will-change:opacity}
+.sky-node:nth-of-type(3n) .sky-node-halo{animation-delay:-2.3s}
+.sky-node:nth-of-type(3n+1) .sky-node-halo{animation-delay:-4.5s}
+.sky-focus-ring{animation:sky-focus-breathe 6.8s ease-in-out infinite alternate;will-change:opacity}
+.sky-ray{animation:sky-ray-breathe 7.2s ease-in-out infinite alternate;will-change:opacity}
+.sky-ray:nth-of-type(3n){animation-delay:-3s}
+.sky-thread-glint{fill:#e9e3ff;stroke:#a8d9f4;stroke-width:.7;opacity:0;pointer-events:none;
+  animation:sky-thread-travel var(--glint-duration,9s) linear infinite;
+  animation-delay:var(--glint-delay,0s);will-change:transform,opacity}
+.sky-node.sky-selected .sky-node-halo{animation:sky-select-glow .19s ease-out forwards}
+@keyframes sky-halo-shimmer{from{opacity:.42}to{opacity:.92}}
+@keyframes sky-focus-breathe{from{opacity:.44}to{opacity:1}}
+@keyframes sky-ray-breathe{from{opacity:.56}to{opacity:.83}}
+@keyframes sky-thread-travel{
+  0%,8%{opacity:0;transform:translate3d(0,0,0)}
+  16%{opacity:.85}
+  72%{opacity:.85}
+  82%,100%{opacity:0;transform:translate3d(var(--drift-x),var(--drift-y),0)}
+}
+@keyframes sky-select-glow{from{opacity:.35}to{opacity:1}}
